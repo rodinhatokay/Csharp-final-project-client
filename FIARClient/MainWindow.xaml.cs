@@ -25,7 +25,7 @@ namespace FIARClient
         public MainWindow()
         {
             InitializeComponent();
-        }        
+        }
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             RegisterAcc rgAcc = new RegisterAcc();
@@ -34,28 +34,33 @@ namespace FIARClient
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if(AllboxesFilled())
+            if (AllboxesFilled())
             {
-                ClientCallback callback = new ClientCallback();
-                FIARServiceClient client = new FIARServiceClient(new InstanceContext(callback));
-                string username = tbUserName.Text.Trim();
-                string pass = tbPass.Password.ToString();
                 try
                 {
+                    ClientCallback callback = new ClientCallback();
+                    FIARServiceClient client = new FIARServiceClient(new InstanceContext(callback));
+                    string username = tbUserName.Text.Trim();
+                    string pass = tbPass.Password.ToString();
+
                     client.PlayerLogin(username, pass);
-                    WaitingRoom waitingRoom = new WaitingRoom(client,username,callback);
+                    WaitingRoom waitingRoom = new WaitingRoom(client, username, callback);
                     this.Close();
                     waitingRoom.Show();
                 }
-                catch(FaultException<PlayerAlreadyConnectedFault> ex)
+                catch (FaultException<PlayerAlreadyConnectedFault> ex)
                 {
                     MessageBox.Show(ex.Detail.Details);
                 }
-                catch(FaultException<PlayerDoesntExistInDataBase> ex)
+                catch (FaultException<PlayerDoesntExistInDataBase> ex)
                 {
                     MessageBox.Show(ex.Detail.Details);
                 }
-                catch(Exception ex)
+                catch(FaultException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }

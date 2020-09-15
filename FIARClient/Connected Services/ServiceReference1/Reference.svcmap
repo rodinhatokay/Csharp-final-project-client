@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bd899703-d51d-4bda-932a-a1bda2eea69e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="432403ac-7185-4971-9c40-834d1af18e73" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -21,15 +21,15 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:9000/Design_Time_Addresses/WcfFIARService/Service1/" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="6b2c1bf8-dc6f-48e4-abe0-82241b0a7e7c" SourceId="1" SourceUrl="http://localhost:9000/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd0" />
-    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="9af1d18f-0296-4ea3-b4f0-61dafed59ad3" SourceId="1" SourceUrl="http://localhost:9000/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd1" />
-    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="c8c89570-6eed-408d-b336-629a8390268e" SourceId="1" SourceUrl="http://localhost:9000/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd2" />
-    <MetadataFile FileName="item43.xsd" MetadataType="Schema" ID="f3ec8cd3-4fcd-460e-b9ac-b384e9e75b43" SourceId="1" SourceUrl="http://localhost:9000/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd3" />
-    <MetadataFile FileName="FIARService1.wsdl" MetadataType="Wsdl" ID="20640eee-061e-4561-9c6d-74c85f0ae96e" SourceId="1" SourceUrl="http://localhost:9000/Design_Time_Addresses/WcfFIARService/Service1/?wsdl" />
-    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="4df32f75-2b1a-4c34-b774-f55022f7582f" SourceId="1" SourceUrl="http://localhost:9000/Design_Time_Addresses/WcfFIARService/Service1/?disco" />
+    <MetadataFile FileName="FIARService1.wsdl" MetadataType="Wsdl" ID="ba35bd4d-db08-4001-b7de-6300986065ea" SourceId="1" SourceUrl="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/?wsdl" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="82394677-1c7b-4c20-87c7-73f57053f03b" SourceId="1" SourceUrl="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd2" />
+    <MetadataFile FileName="item41.xsd" MetadataType="Schema" ID="6591a186-ee6d-442d-9c5c-78632a128d55" SourceId="1" SourceUrl="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd1" />
+    <MetadataFile FileName="item42.xsd" MetadataType="Schema" ID="ebe8c471-db4c-4c60-a300-5f47e9955cea" SourceId="1" SourceUrl="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd0" />
+    <MetadataFile FileName="item43.xsd" MetadataType="Schema" ID="5c94ca2b-a203-4999-9852-40e1768299d0" SourceId="1" SourceUrl="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd3" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="19fd8f7c-6bac-4a0d-bd81-0b237d143104" SourceId="1" SourceUrl="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

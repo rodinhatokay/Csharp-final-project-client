@@ -14,10 +14,13 @@ namespace FIARClient
     public class ClientCallback : IFIARServiceCallback
     {
         public delegate bool invite(string username);
-        public invite invatation; 
+        public invite invatation;
+        internal Action<List<PlayerInfo>> getPlayers;
+
+
         public void OtherPlayerMoved(MoveResult result, int col)
         {
-            throw new NotImplementedException();
+            return;
         }
 
         public bool SendInvite(string username)
@@ -26,9 +29,17 @@ namespace FIARClient
             return res;
         }
 
+        
+
         public void StartGame()
         {
-            throw new NotImplementedException();
+            return;
+        }
+
+
+        public void UpdateClients(List<PlayerInfo> players)
+        {
+            getPlayers(players);
         }
     }
 }

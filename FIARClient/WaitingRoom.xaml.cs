@@ -20,36 +20,39 @@ namespace FIARClient
     /// </summary>
     public partial class WaitingRoom : Window
     {
-        public WaitingRoom()
-        {
-            InitializeComponent();
-        }
+        public string UserName { get; internal set; }
+        public FIARServiceClient Client { get; internal set; }
 
         List<PlayerInfo> players;
         private ClientCallback callback;
 
-        public WaitingRoom(FIARServiceClient clinet, string us)
-        {
 
+        private void GetPlayers(List<PlayerInfo> players)
+        {
+            this.players = players;
+            lbWaitingRoom.ItemsSource = players;
+        }
+
+
+        public WaitingRoom(FIARServiceClient clinet, string us, ClientCallback callback)
+        {
+            InitializeComponent();
+            this.callback = callback;
+            callback.invatation += InviteRecieved;
+            callback.getPlayers += GetPlayers;
             Client = clinet;
             UserName = us;
             players = new List<PlayerInfo>();
             try
             {
                 players = Client.GetAvalibalePlayers();
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            InitializeComponent();
-        }
-
-        public WaitingRoom(FIARServiceClient clinet, string us, ClientCallback callback) : this(clinet, us)
-        {
-            this.callback = callback;
-            callback.invatation += InviteRecieved;
+            
+            lbWaitingRoom.ItemsSource = players;
         }
 
         public bool InviteRecieved(string username)
@@ -57,24 +60,30 @@ namespace FIARClient
             InvitationDialog dialog = new InvitationDialog();
             dialog.Label.Content = "Invitation to a game from " + username;
             dialog.ShowDialog();
+
+            if (dialog.Result == true)
+            {
+                return true;
+            }
             return false;
-            //if (dialog.Result == true)
-            //{
-                
-            //}
         }
 
-        public string UserName { get; internal set; }
-        public FIARServiceClient Client { get; internal set; }
+
 
         private void btn_req_Click(object sender, RoutedEventArgs e)
         {
-            //get client name clicked on
-            //send request and check what it returns
-            //according to result display in messagebox
-            var player = lbWaitingRoom.SelectedItem;
+            PlayerInfo pi = lbWaitingRoom.SelectedItem as PlayerInfo;
+            string name = pi.username;
+            bool result = Client.InvatationSend(UserName, name);
+            if (result == true)
+            {
+                MessageBox.Show(name + "ACCEPTED TO PLAY WITH YOU");
 
-            
+            }
+            else
+            {
+                MessageBox.Show(name + "DECLINED YOUR INVITE");
+            }
         }
 
         private void btn_search_Click(object sender, RoutedEventArgs e)
@@ -85,16 +94,17 @@ namespace FIARClient
 
         }
 
-        
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            Client.PlayerLogout(UserName);
             Environment.Exit(Environment.ExitCode);
         }
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            lbWaitingRoom.ItemsSource = players;
+            
         }
 
 
@@ -106,7 +116,7 @@ namespace FIARClient
             tbWins.Text = pi.Wins.ToString();
             tbLoses.Text = pi.Loses.ToString();
             tbScore.Text = pi.Score.ToString();
-            tbPercent.Text = (pi.PlayedAgainst.Count == 0)? "0" : (pi.Wins * 100 / pi.PlayedAgainst.Count).ToString();
+            //tbPercent.Text = (pi.PlayedAgainst.Count == 0)? "0" : (pi.Wins * 100 / pi.PlayedAgainst.Count).ToString();
         }
     }
 }

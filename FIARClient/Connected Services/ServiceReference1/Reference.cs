@@ -380,6 +380,9 @@ namespace FIARClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/OtherPlayerMoved")]
         void OtherPlayerMoved(FIARClient.ServiceReference1.MoveResult result, int col);
         
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/UpdateClients")]
+        void UpdateClients(System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo> players);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/StartGame")]
         void StartGame();
     }

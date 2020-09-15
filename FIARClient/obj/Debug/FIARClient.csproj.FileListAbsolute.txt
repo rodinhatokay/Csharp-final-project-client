@@ -27,3 +27,32 @@ C:\Users\Rodin\Desktop\Csharp FinalProject\FIARClient\FIARClient\obj\Debug\Searc
 C:\Users\Rodin\Desktop\Csharp FinalProject\FIARClient\FIARClient\obj\Debug\SearchBy2Players.baml
 C:\Users\Rodin\Desktop\Csharp FinalProject\FIARClient\FIARClient\obj\Debug\InvitationDialog.g.cs
 C:\Users\Rodin\Desktop\Csharp FinalProject\FIARClient\FIARClient\obj\Debug\InvitationDialog.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\bin\Debug\FIARClient.exe.config
+D:\Csharp final project\Csharp-final-project-client\FIARClient\bin\Debug\FIARClient.exe
+D:\Csharp final project\Csharp-final-project-client\FIARClient\bin\Debug\FIARClient.pdb
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.csprojAssemblyReference.cache
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\Game.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\InvitationDialog.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\MainWindow.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\RegisterAcc.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\Search.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\SearchBy.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\SearchBy2Players.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\WaitingRoom.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\App.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient_MarkupCompile.cache
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient_MarkupCompile.lref
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\Game.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\InvitationDialog.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\MainWindow.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\RegisterAcc.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\Search.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\SearchBy.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\SearchBy2Players.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\WaitingRoom.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.g.resources
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.Properties.Resources.resources
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.csproj.GenerateResource.cache
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.csproj.CoreCompileInputs.cache
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.exe
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.pdb
