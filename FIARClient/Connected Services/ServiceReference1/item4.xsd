@@ -31,6 +31,8 @@
       <xs:enumeration value="Draw" />
       <xs:enumeration value="NotYourTurn" />
       <xs:enumeration value="GameOn" />
+      <xs:enumeration value="PlayerLeft" />
+      <xs:enumeration value="IlligelMove" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="MoveResult" nillable="true" type="tns:MoveResult" />
@@ -46,6 +48,7 @@
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PlayedAgainst" nillable="true" type="q1:ArrayOfstring" />
       <xs:element minOccurs="0" name="Score" type="xs:int" />
       <xs:element minOccurs="0" name="Wins" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
       <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>

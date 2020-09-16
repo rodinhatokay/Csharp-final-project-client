@@ -208,6 +208,12 @@ namespace FIARClient.ServiceReference1 {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         GameOn = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PlayerLeft = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IlligelMove = 5,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -230,6 +236,9 @@ namespace FIARClient.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int WinsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string usernameField;
@@ -292,6 +301,19 @@ namespace FIARClient.ServiceReference1 {
                 if ((this.WinsField.Equals(value) != true)) {
                     this.WinsField = value;
                     this.RaisePropertyChanged("Wins");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                if ((this.idField.Equals(value) != true)) {
+                    this.idField = value;
+                    this.RaisePropertyChanged("id");
                 }
             }
         }

@@ -14,13 +14,18 @@ namespace FIARClient
     public class ClientCallback : IFIARServiceCallback
     {
         public delegate bool invite(string username);
+
         public invite invatation;
         internal Action<List<PlayerInfo>> getPlayers;
 
-
+        public delegate Task move(int col);
+        public move madeMove;
         public void OtherPlayerMoved(MoveResult result, int col)
         {
-
+            madeMove(col);
+            //var task = Task.Run(async () => await madeMove(col));
+            //await madeMove(col);
+            //task.RunSynchronously();
             return;
         }
 

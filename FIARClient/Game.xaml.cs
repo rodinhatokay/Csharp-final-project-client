@@ -33,11 +33,12 @@ namespace FIARClient
             this.UserName = us;
             this.callback = callback;
             this.Client = client;
+            this.callback.madeMove = UpdateGame;
             this.turn = turn;
 
             InitializeComponent();
             playerColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-            opponentColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Yellow"));
+            opponentColor = new SolidColorBrush(Color.FromArgb(64, 32, 191, 255));
 
             SetGui();
         }
@@ -69,34 +70,44 @@ namespace FIARClient
 
         private async void Ellipse_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (turn)
+            try
             {
-                Ellipse el = sender as Ellipse;
-                if (!animating)
+                if (turn)
                 {
-                    int col = myUG.Children.IndexOf(el) % 7;
-                    var result = Client.ReportMove(this.UserName, col);
-                    if (result == MoveResult.NotYourTurn)
+                    Ellipse el = sender as Ellipse;
+                    if (!animating)
                     {
-                        MessageBox.Show("Not your turn");
-                        return;
-                    }
-                    animating = true;
-                    await Animate_Click(el);
+                        int col = myUG.Children.IndexOf(el) % 7;
+                        var result = Client.ReportMove(this.UserName, col);
+                        //MessageBox.Show(result.ToString());
+                        if (result == MoveResult.NotYourTurn || result == MoveResult.IlligelMove)
+                        {
+                            MessageBox.Show("Not your turn");
+                            return;
+                        }
 
-                    if (result == MoveResult.Draw)
-                    {
-                        EndGame("Its a Draw");
+                        await Animate_Click(el);
+
+                        if (result == MoveResult.Draw)
+                        {
+                            EndGame("Its a Draw");
+                        }
+                        else if (result == MoveResult.YouWon)
+                        {
+                            EndGame("You won!");
+                        }
                     }
-                    else if (result == MoveResult.YouWon)
-                    {
-                        EndGame("You won!");
-                    }
+
+                    turn = !turn;
                 }
-
-                turn = false;
             }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
+
         }
+
 
         private void EndGame(string v)
         {
@@ -106,51 +117,70 @@ namespace FIARClient
 
         private async Task UpdateGame(int location)
         {
-
-            await animate(location, opponentColor);
+            animating = true;
             turn = true;
+            await animate(location, opponentColor);
+
+            animating = false;
         }
 
         private async Task Animate_Click(Ellipse el)
         {
-
+            animating = true;
             int index = myUG.Children.IndexOf(el) % 7;
             await animate(index, playerColor);
+            animating = false;
 
         }
 
         private async Task animate(int index, SolidColorBrush color)
         {
 
-            while (animating)
+            for (int j = index; j < 42; j += 7)
             {
-                for (int j = index; j < 42; j = j + 7)
+                Ellipse ellToAnimate = myUG.Children[j] as Ellipse;
+                if (ellToAnimate.Fill != whiteColor)
                 {
-                    myUG.InvalidateVisual();
-                    Ellipse ellToAnimate = myUG.Children[j] as Ellipse;
 
-                    if (ellToAnimate.Fill == color || ellToAnimate.Fill == opponentColor)
-                    {
-                        if (j - 7 > -1)
-                        {
-                            Ellipse ellToFill = myUG.Children[j - 7] as Ellipse;
-                            ellToFill.Fill = color;
-                        }
-                        animating = false;
-                        break;
-                    }
-                    else if (j + 7 > 41)
-                    {
-                        ellToAnimate.Fill = color;
-                        animating = false;
-                    }
-                    else
-                    {
-                        ellToAnimate.Fill = color;
-                        await Task.Delay(60);
-                        ellToAnimate.Fill = whiteColor;
-                    }
+                    (myUG.Children[j - 7] as Ellipse).Fill = color;
+                    break;
+
                 }
+
+                if (j >= 35)
+                {
+                    ellToAnimate.Fill = color;
+                    break;
+                }
+                ellToAnimate.Fill = color;
+                await Task.Delay(60);
+                ellToAnimate.Fill = whiteColor;
+
+                /*myUG.InvalidateVisual();
+                Ellipse ellToAnimate = myUG.Children[j] as Ellipse;
+
+                if (ellToAnimate.Fill == color || ellToAnimate.Fill == opponentColor)
+                {
+                    if (j - 7 > -1)
+                    {
+                        Ellipse ellToFill = myUG.Children[j - 7] as Ellipse;
+                        ellToFill.Fill = color;
+                    }
+                    animating = false;
+                    break;
+                }
+                else if (j + 7 > 41)
+                {
+                    ellToAnimate.Fill = color;
+                    animating = false;
+                }
+                else
+                {
+                    ellToAnimate.Fill = color;
+                    await Task.Delay(60);
+                    ellToAnimate.Fill = whiteColor;
+                }*/
+
             }
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
