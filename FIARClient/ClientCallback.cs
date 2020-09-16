@@ -20,6 +20,7 @@ namespace FIARClient
 
         public void OtherPlayerMoved(MoveResult result, int col)
         {
+
             return;
         }
 
@@ -29,7 +30,7 @@ namespace FIARClient
             return res;
         }
 
-        
+
 
         public void StartGame()
         {

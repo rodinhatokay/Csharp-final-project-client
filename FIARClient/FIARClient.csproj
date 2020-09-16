@@ -69,6 +69,7 @@
     <Compile Include="InvitationDialog.xaml.cs">
       <DependentUpon>InvitationDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="player.cs" />
     <Compile Include="RegisterAcc.xaml.cs">
       <DependentUpon>RegisterAcc.xaml</DependentUpon>
     </Compile>

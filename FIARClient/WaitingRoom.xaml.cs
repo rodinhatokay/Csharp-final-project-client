@@ -25,15 +25,6 @@ namespace FIARClient
 
         List<PlayerInfo> players;
         private ClientCallback callback;
-
-
-        private void GetPlayers(List<PlayerInfo> players)
-        {
-            this.players = players;
-            lbWaitingRoom.ItemsSource = players;
-        }
-
-
         public WaitingRoom(FIARServiceClient clinet, string us, ClientCallback callback)
         {
             InitializeComponent();
@@ -51,8 +42,29 @@ namespace FIARClient
             {
                 MessageBox.Show(ex.Message);
             }
-            
-            lbWaitingRoom.ItemsSource = players;
+
+            lbWaitingRoom.ItemsSource = initPlayers(players);
+        }
+
+
+        private void GetPlayers(List<PlayerInfo> players)
+        {
+            this.players = players;
+
+
+
+            lbWaitingRoom.ItemsSource = initPlayers(players);
+        }
+
+        private List<player> initPlayers(List<PlayerInfo> players)
+        {
+            List<player> pl = new List<player>();
+            players.ForEach(i =>
+            {
+                if (UserName != i.username)
+                    pl.Add(new player(i));
+            });
+            return pl;
         }
 
         public bool InviteRecieved(string username)
@@ -63,6 +75,10 @@ namespace FIARClient
 
             if (dialog.Result == true)
             {
+                Game g = new Game(Client, this.UserName, this.callback, false);
+                //this.Hide();
+                g.Show();
+                //this.Show();
                 return true;
             }
             return false;
@@ -77,7 +93,12 @@ namespace FIARClient
             bool result = Client.InvatationSend(UserName, name);
             if (result == true)
             {
-                MessageBox.Show(name + "ACCEPTED TO PLAY WITH YOU");
+                Game g = new Game(Client, this.UserName, this.callback, true);
+                //this.Hide();
+                g.Show();
+                //this.Show();
+
+                //MessageBox.Show(name + "ACCEPTED TO PLAY WITH YOU");
 
             }
             else
@@ -104,7 +125,7 @@ namespace FIARClient
 
         private void Window_Initialized(object sender, EventArgs e)
         {
-            
+
         }
 
 
