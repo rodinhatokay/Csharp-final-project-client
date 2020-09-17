@@ -18,11 +18,11 @@ namespace FIARClient
         public invite invatation;
         internal Action<List<PlayerInfo>> getPlayers;
 
-        public delegate Task move(int col);
+        public delegate Task move(MoveResult result, int col);
         public move madeMove;
         public void OtherPlayerMoved(MoveResult result, int col)
         {
-            madeMove(col);
+            madeMove(result, col);
             //var task = Task.Run(async () => await madeMove(col));
             //await madeMove(col);
             //task.RunSynchronously();

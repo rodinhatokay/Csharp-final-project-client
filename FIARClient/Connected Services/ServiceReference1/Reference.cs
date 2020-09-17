@@ -201,19 +201,22 @@ namespace FIARClient.ServiceReference1 {
         YouWon = 0,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        Draw = 1,
+        YouLost = 1,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        NotYourTurn = 2,
+        Draw = 2,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        GameOn = 3,
+        NotYourTurn = 3,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        PlayerLeft = 4,
+        GameOn = 4,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        IlligelMove = 5,
+        PlayerLeft = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IlligelMove = 6,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

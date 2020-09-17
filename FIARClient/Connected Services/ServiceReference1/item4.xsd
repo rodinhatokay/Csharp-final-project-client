@@ -28,6 +28,7 @@
   <xs:simpleType name="MoveResult">
     <xs:restriction base="xs:string">
       <xs:enumeration value="YouWon" />
+      <xs:enumeration value="YouLost" />
       <xs:enumeration value="Draw" />
       <xs:enumeration value="NotYourTurn" />
       <xs:enumeration value="GameOn" />
