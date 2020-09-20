@@ -22,5 +22,15 @@ namespace FIARClient
             return this.username;
 
         }
+
+        public static List<player> initList(List<PlayerInfo> l)
+        {
+            var newL = new List<player>();
+            l.ForEach(p =>
+            {
+                newL.Add(new player(p));
+            });
+            return newL;
+        }
     }
 }

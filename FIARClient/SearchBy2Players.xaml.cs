@@ -25,10 +25,11 @@ namespace FIARClient
         public FIARServiceClient Client { get; internal set; }
         public IEnumerable Result { get; internal set; }
 
-        private List<string> Players { get; set; }
+        private List<player> Players { get; set; }
 
-        public SearchBy2Players()
+        public SearchBy2Players(FIARServiceClient Client)
         {
+            this.Client = Client;
             InitializeComponent();
         }
 
@@ -36,9 +37,9 @@ namespace FIARClient
         {
             try
             {
-                //Players = Client.GetAllPlayer();
-                cbFirstActors.ItemsSource = new List<string>(Players);
-                cbSecondActors.ItemsSource = new List<string>(Players);
+                Players = player.initList(Client.GetAllPlayers());
+                cbFirstActors.ItemsSource = new List<player>(Players);
+                cbSecondActors.ItemsSource = new List<player>(Players);
             }
             catch (Exception)
             {
@@ -55,7 +56,8 @@ namespace FIARClient
             }
             try
             {
-                //Result = Client.GetGames(cbFirstActors.SelectedItem, cbSecondActors.SelectedItem);
+                var games = Client.Search(cbSecondActors.Text, cbFirstActors.Text);
+
                 Close();
             }
             catch (Exception)
@@ -66,14 +68,14 @@ namespace FIARClient
 
         private void cbSecondActors_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            cbFirstActors.ItemsSource = new List<string>(Players);
-            cbFirstActors.Items.Remove(cbSecondActors.SelectedItem);
+            var l = Players.Where(x => x.username != cbSecondActors.SelectedItem.ToString());
+            cbFirstActors.ItemsSource = l;
         }
 
         private void cbFirstActors_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            cbSecondActors.ItemsSource = new List<string>(Players);
-            cbSecondActors.Items.Remove(cbFirstActors.SelectedItem);
+            var l = Players.Where(x => x.username != cbFirstActors.SelectedItem.ToString());
+            cbSecondActors.ItemsSource = l;
         }
     }
 }

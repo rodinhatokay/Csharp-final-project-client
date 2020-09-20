@@ -193,32 +193,6 @@ namespace FIARClient.ServiceReference1 {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MoveResult", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
-    public enum MoveResult : int {
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        YouWon = 0,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        YouLost = 1,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        Draw = 2,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        NotYourTurn = 3,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        GameOn = 4,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        PlayerLeft = 5,
-        
-        [System.Runtime.Serialization.EnumMemberAttribute()]
-        IlligelMove = 6,
-    }
-    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PlayerInfo", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
@@ -227,6 +201,9 @@ namespace FIARClient.ServiceReference1 {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int GamesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int LosesField;
@@ -253,6 +230,19 @@ namespace FIARClient.ServiceReference1 {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Games {
+            get {
+                return this.GamesField;
+            }
+            set {
+                if ((this.GamesField.Equals(value) != true)) {
+                    this.GamesField = value;
+                    this.RaisePropertyChanged("Games");
+                }
             }
         }
         
@@ -344,6 +334,378 @@ namespace FIARClient.ServiceReference1 {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Game", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+    [System.SerializableAttribute()]
+    public partial class Game : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int GameIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool GameOverField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime GameStartField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PlayedAgainst_PlayerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FIARClient.ServiceReference1.Player Player1Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Player1PointsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FIARClient.ServiceReference1.Player Player2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int Player2PointsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> Player_PlayerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FIARClient.ServiceReference1.Player WinnerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> Winner_PlayerIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int GameId {
+            get {
+                return this.GameIdField;
+            }
+            set {
+                if ((this.GameIdField.Equals(value) != true)) {
+                    this.GameIdField = value;
+                    this.RaisePropertyChanged("GameId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool GameOver {
+            get {
+                return this.GameOverField;
+            }
+            set {
+                if ((this.GameOverField.Equals(value) != true)) {
+                    this.GameOverField = value;
+                    this.RaisePropertyChanged("GameOver");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime GameStart {
+            get {
+                return this.GameStartField;
+            }
+            set {
+                if ((this.GameStartField.Equals(value) != true)) {
+                    this.GameStartField = value;
+                    this.RaisePropertyChanged("GameStart");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PlayedAgainst_PlayerId {
+            get {
+                return this.PlayedAgainst_PlayerIdField;
+            }
+            set {
+                if ((this.PlayedAgainst_PlayerIdField.Equals(value) != true)) {
+                    this.PlayedAgainst_PlayerIdField = value;
+                    this.RaisePropertyChanged("PlayedAgainst_PlayerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FIARClient.ServiceReference1.Player Player1 {
+            get {
+                return this.Player1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Player1Field, value) != true)) {
+                    this.Player1Field = value;
+                    this.RaisePropertyChanged("Player1");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Player1Points {
+            get {
+                return this.Player1PointsField;
+            }
+            set {
+                if ((this.Player1PointsField.Equals(value) != true)) {
+                    this.Player1PointsField = value;
+                    this.RaisePropertyChanged("Player1Points");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FIARClient.ServiceReference1.Player Player2 {
+            get {
+                return this.Player2Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Player2Field, value) != true)) {
+                    this.Player2Field = value;
+                    this.RaisePropertyChanged("Player2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Player2Points {
+            get {
+                return this.Player2PointsField;
+            }
+            set {
+                if ((this.Player2PointsField.Equals(value) != true)) {
+                    this.Player2PointsField = value;
+                    this.RaisePropertyChanged("Player2Points");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Player_PlayerId {
+            get {
+                return this.Player_PlayerIdField;
+            }
+            set {
+                if ((this.Player_PlayerIdField.Equals(value) != true)) {
+                    this.Player_PlayerIdField = value;
+                    this.RaisePropertyChanged("Player_PlayerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public FIARClient.ServiceReference1.Player Winner {
+            get {
+                return this.WinnerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WinnerField, value) != true)) {
+                    this.WinnerField = value;
+                    this.RaisePropertyChanged("Winner");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Winner_PlayerId {
+            get {
+                return this.Winner_PlayerIdField;
+            }
+            set {
+                if ((this.Winner_PlayerIdField.Equals(value) != true)) {
+                    this.Winner_PlayerIdField = value;
+                    this.RaisePropertyChanged("Winner_PlayerId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Player", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+    [System.SerializableAttribute()]
+    public partial class Player : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<FIARClient.ServiceReference1.Game> GamesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<FIARClient.ServiceReference1.Game> GamesAsOpponentField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.List<FIARClient.ServiceReference1.Game> GamesWonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PassField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PlayerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<FIARClient.ServiceReference1.Game> Games {
+            get {
+                return this.GamesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GamesField, value) != true)) {
+                    this.GamesField = value;
+                    this.RaisePropertyChanged("Games");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<FIARClient.ServiceReference1.Game> GamesAsOpponent {
+            get {
+                return this.GamesAsOpponentField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GamesAsOpponentField, value) != true)) {
+                    this.GamesAsOpponentField = value;
+                    this.RaisePropertyChanged("GamesAsOpponent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Collections.Generic.List<FIARClient.ServiceReference1.Game> GamesWon {
+            get {
+                return this.GamesWonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GamesWonField, value) != true)) {
+                    this.GamesWonField = value;
+                    this.RaisePropertyChanged("GamesWon");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Pass {
+            get {
+                return this.PassField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PassField, value) != true)) {
+                    this.PassField = value;
+                    this.RaisePropertyChanged("Pass");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PlayerId {
+            get {
+                return this.PlayerIdField;
+            }
+            set {
+                if ((this.PlayerIdField.Equals(value) != true)) {
+                    this.PlayerIdField = value;
+                    this.RaisePropertyChanged("PlayerId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="MoveResult", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+    public enum MoveResult : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YouWon = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        YouLost = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Draw = 2,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        NotYourTurn = 3,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        GameOn = 4,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        PlayerLeft = 5,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        IlligelMove = 6,
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IFIARService", CallbackContract=typeof(FIARClient.ServiceReference1.IFIARServiceCallback))]
     public interface IFIARService {
@@ -369,6 +731,18 @@ namespace FIARClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/PlayerLogin", ReplyAction="http://tempuri.org/IFIARService/PlayerLoginResponse")]
         System.Threading.Tasks.Task PlayerLoginAsync(string username, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/GetAllPlayers", ReplyAction="http://tempuri.org/IFIARService/GetAllPlayersResponse")]
+        System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo> GetAllPlayers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/GetAllPlayers", ReplyAction="http://tempuri.org/IFIARService/GetAllPlayersResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo>> GetAllPlayersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/Search", ReplyAction="http://tempuri.org/IFIARService/SearchResponse")]
+        System.Collections.Generic.List<FIARClient.ServiceReference1.Game> Search(string player1, string player2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/Search", ReplyAction="http://tempuri.org/IFIARService/SearchResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<FIARClient.ServiceReference1.Game>> SearchAsync(string player1, string player2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/PlayerLogout", ReplyAction="http://tempuri.org/IFIARService/PlayerLogoutResponse")]
         void PlayerLogout(string username);
@@ -468,6 +842,22 @@ namespace FIARClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task PlayerLoginAsync(string username, string password) {
             return base.Channel.PlayerLoginAsync(username, password);
+        }
+        
+        public System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo> GetAllPlayers() {
+            return base.Channel.GetAllPlayers();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo>> GetAllPlayersAsync() {
+            return base.Channel.GetAllPlayersAsync();
+        }
+        
+        public System.Collections.Generic.List<FIARClient.ServiceReference1.Game> Search(string player1, string player2) {
+            return base.Channel.Search(player1, player2);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<FIARClient.ServiceReference1.Game>> SearchAsync(string player1, string player2) {
+            return base.Channel.SearchAsync(player1, player2);
         }
         
         public void PlayerLogout(string username) {

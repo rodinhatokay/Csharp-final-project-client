@@ -22,9 +22,13 @@ namespace FIARClient
     {
         public FIARServiceClient Client { get; internal set; }
 
-        public Search()
+        public Search(FIARServiceClient Client)
         {
+            this.Client = Client;
             InitializeComponent();
+            dgData.ItemsSource = Client.GetAllPlayers();
+            int a = dgData.Columns.Count;
+
         }
 
         private void MI_UserName_Click(object sender, RoutedEventArgs e)
@@ -34,7 +38,7 @@ namespace FIARClient
             searchBy.Label.Content = "Search by  user Name:";
             searchBy.Status = SearchByStatus.UserName;
             searchBy.ShowDialog();
-            lbItems.ItemsSource = searchBy.Result;
+            dgData.ItemsSource = searchBy.Result;
         }
 
         private void MI_gamesPlayed_Click(object sender, RoutedEventArgs e)
@@ -44,7 +48,7 @@ namespace FIARClient
             searchBy.Label.Content = "Search by games Count:";
             searchBy.Status = SearchByStatus.Games;
             searchBy.ShowDialog();
-            lbItems.ItemsSource = searchBy.Result;
+            dgData.ItemsSource = searchBy.Result;
 
         }
 
@@ -55,7 +59,7 @@ namespace FIARClient
             searchBy.Label.Content = "Search by wins Count:";
             searchBy.Status = SearchByStatus.Wins;
             searchBy.ShowDialog();
-            lbItems.ItemsSource = searchBy.Result;
+            dgData.ItemsSource = searchBy.Result;
 
         }
 
@@ -66,7 +70,7 @@ namespace FIARClient
             searchBy.Label.Content = "Search by loses Count:";
             searchBy.Status = SearchByStatus.Loses;
             searchBy.ShowDialog();
-            lbItems.ItemsSource = searchBy.Result;
+            dgData.ItemsSource = searchBy.Result;
 
         }
 
@@ -77,7 +81,7 @@ namespace FIARClient
             searchBy.Label.Content = "Search by score:";
             searchBy.Status = SearchByStatus.Score;
             searchBy.ShowDialog();
-            lbItems.ItemsSource = searchBy.Result;
+            dgData.ItemsSource = searchBy.Result;
 
         }
 
@@ -100,7 +104,7 @@ namespace FIARClient
                 //lbItems.ItemsSource = Client.GetCurrentPlayers();
 
             }
-            catch(Exception )
+            catch (Exception)
             {
 
             }
@@ -108,10 +112,12 @@ namespace FIARClient
 
         private void MI_2players_Click(object sender, RoutedEventArgs e)
         {
-            SearchBy2Players windowSearch = new SearchBy2Players();
+            SearchBy2Players windowSearch = new SearchBy2Players(Client);
             windowSearch.Client = Client;
             windowSearch.ShowDialog();
-            lbItems.ItemsSource = windowSearch.Result;
+            dgData.ItemsSource = windowSearch.Result;
         }
+
     }
+
 }

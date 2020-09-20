@@ -42,6 +42,33 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllPlayers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPlayersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="GetAllPlayersResult" nillable="true" type="q1:ArrayOfPlayerInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Search">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="player1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="player2" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="SearchResult" nillable="true" type="q2:ArrayOfGame" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="PlayerLogout">
     <xs:complexType>
       <xs:sequence>
@@ -87,7 +114,7 @@
   <xs:element name="ReportMoveResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="ReportMoveResult" type="q1:MoveResult" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="ReportMoveResult" type="q3:MoveResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -99,7 +126,7 @@
   <xs:element name="GetAvalibalePlayersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="GetAvalibalePlayersResult" nillable="true" type="q2:ArrayOfPlayerInfo" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="GetAvalibalePlayersResult" nillable="true" type="q4:ArrayOfPlayerInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -120,7 +147,7 @@
   <xs:element name="OtherPlayerMoved">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="result" type="q3:MoveResult" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="result" type="q5:MoveResult" />
         <xs:element minOccurs="0" name="col" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
@@ -128,7 +155,7 @@
   <xs:element name="UpdateClients">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="players" nillable="true" type="q4:ArrayOfPlayerInfo" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="players" nillable="true" type="q6:ArrayOfPlayerInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

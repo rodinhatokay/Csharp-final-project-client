@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIARClient"
         mc:Ignorable="d"
-         Title="Sreach games by two Players" Height="150" Width="250" ResizeMode="NoResize" Initialized="Window_Initialized" >
+         Title="Sreach games by two Players" Height="298.516" Width="492.75" ResizeMode="NoResize" Initialized="Window_Initialized" >
     <Grid Margin="10" Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -19,7 +19,7 @@
         <Label Grid.Row="0" HorizontalContentAlignment="Right">First player:</Label>
         <Label Grid.Row="1" HorizontalContentAlignment="Right">Second player:</Label>
         <ComboBox Margin="5" Name="cbFirstActors" Grid.Row="0" Grid.Column="1" SelectionChanged="cbFirstActors_SelectionChanged"/>
-        <ComboBox Margin="5" Name="cbSecondActors" Grid.Row="1" Grid.Column="1" SelectionChanged="cbSecondActors_SelectionChanged"/>
+        <ComboBox Margin="24,10,10,83" Name="cbSecondActors" SelectionChanged="cbSecondActors_SelectionChanged" Grid.RowSpan="2"/>
         <Button Margin="5" Grid.Row="2" Grid.Column="1" Width="70" Content="Search"
                 Click="Button_Click"/>
     </Grid>

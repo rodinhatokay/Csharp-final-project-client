@@ -144,6 +144,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\ServiceReference1\FIARClient.ServiceReference1.Game.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReference1\FIARClient.ServiceReference1.MoveResult.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

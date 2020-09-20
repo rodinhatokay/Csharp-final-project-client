@@ -109,7 +109,7 @@ namespace FIARClient
 
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
-            Search searchWindow = new Search();
+            Search searchWindow = new Search(Client);
             searchWindow.Client = Client;
             searchWindow.Show();
 
