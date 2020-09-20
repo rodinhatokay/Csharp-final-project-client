@@ -39,7 +39,8 @@ namespace FIARClient
 
             InitializeComponent();
             playerColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-            opponentColor = new SolidColorBrush(Color.FromArgb(64, 32, 191, 255));
+            //opponentColor = new SolidColorBrush(Color.FromArgb(64, 32, 191, 255));
+            opponentColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Yellow"));
 
             SetGui();
         }
@@ -103,9 +104,9 @@ namespace FIARClient
             if (res != MoveResult.GameOn && res != MoveResult.IlligelMove && res != MoveResult.NotYourTurn)
             {
                 if (res == MoveResult.PlayerLeft)
-                    MessageBox.Show("Your opponint left, You Won!");
+                    MessageBox.Show("Your opponent left, You Won!");
                 if (res == MoveResult.Draw)
-                    MessageBox.Show("Game ended, it's a Drow");
+                    MessageBox.Show("Game ended, it's a Draw");
                 if (res == MoveResult.YouWon)
                     MessageBox.Show("Game ended, You Won");
                 if (res == MoveResult.YouLost)

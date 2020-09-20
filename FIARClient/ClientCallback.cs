@@ -22,10 +22,14 @@ namespace FIARClient
         public move madeMove;
         public void OtherPlayerMoved(MoveResult result, int col)
         {
-            madeMove(result, col);
-            //var task = Task.Run(async () => await madeMove(col));
-            //await madeMove(col);
-            //task.RunSynchronously();
+            if(MoveResult.YouWon == result )
+            {
+                madeMove(MoveResult.YouLost, col);
+            }
+            else
+            {
+                madeMove(result, col);
+            }
             return;
         }
 
