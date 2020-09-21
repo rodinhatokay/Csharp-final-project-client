@@ -5,54 +5,60 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIARClient"
         mc:Ignorable="d"
-        Title="Four In A Row" Height="300" Width="500" ResizeMode="NoResize" Closing="Window_Closing" Initialized="Window_Initialized">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="0.5*"/>
-            <ColumnDefinition Width="0.5*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.28*"/>
-        </Grid.RowDefinitions>
-        <GroupBox Header="Waiting Room" Grid.Row="0" Grid.RowSpan="3" Margin="10">
-            <ListBox Name="lbWaitingRoom" Margin="5" SelectionChanged="lbWaitingRoom_SelectionChanged"/>
-        </GroupBox>
-        <GroupBox Header="Player sleceted info" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="5">
-            <Grid Name="infoGrid" Margin="5">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="0.4*"/>
-                    <RowDefinition Height="0.4*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                
-                <TextBlock TextAlignment="Right" VerticalAlignment="Center"> Wins:</TextBlock>
-                <TextBox Name="tbWins" Grid.Row="0" Grid.Column="1" Margin="5" IsEnabled="False"></TextBox>
-                <TextBlock TextAlignment="Right" VerticalAlignment="Center"  Grid.Column="2">Loses:</TextBlock>
-                <TextBox Name="tbLoses" Grid.Row="0" Grid.Column="3" Margin="5" IsEnabled="False"></TextBox>
-                <TextBlock TextAlignment="Right" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" TextWrapping="Wrap"> Percent to win:</TextBlock>
-                <TextBox Name="tbPercent" Grid.Row="1" Grid.Column="1" Margin="5" IsEnabled="False"></TextBox>
-                <TextBlock TextAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2">Score:</TextBlock>
-                <TextBox Name="tbScore" Grid.Row="1" Grid.Column="3" Margin="5" IsEnabled="False"></TextBox>
+        Title="Four In A Row" Height="323.75" Width="500" ResizeMode="NoResize" Closing="Window_Closing" Initialized="Window_Initialized">
 
-                <GroupBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Header="Games">
-                    <ListBox Name="lbInfo" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Margin="0"/>
-                </GroupBox>
-            </Grid>
-            
-        </GroupBox>
-        <Button Name="btn_req" Grid.Column="1" Grid.Row="2" Margin="20,10,20,10" Click="btn_req_Click" >
-            <TextBlock Text="Send Request to player" TextWrapping="Wrap"/>
-        </Button>
-        <Button Name="btn_search" Grid.Column="2" Grid.Row="2" Margin="20,10,20,10" Click="btn_search_Click">
-            <TextBlock Text="Search" TextWrapping="Wrap"/>
-        </Button>
-    </Grid>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Players list" Name="MI_userName"  Click="btn_search_Click"/>
+
+        </Menu>
+        <Grid Margin="0,10,0,3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="236*"/>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="124*"/>
+                <ColumnDefinition Width="123*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.28*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="Waiting Room" Grid.Row="0" Grid.RowSpan="2" Margin="10" Grid.ColumnSpan="2">
+                <ListBox Name="lbWaitingRoom" Margin="5" SelectionChanged="lbWaitingRoom_SelectionChanged"/>
+            </GroupBox>
+            <GroupBox Header="Player sleceted info" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="5">
+                <Grid Name="infoGrid" Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock TextAlignment="Right" VerticalAlignment="Center"> Wins:</TextBlock>
+                    <TextBox Name="tbWins" Grid.Row="0" Grid.Column="1" Margin="5" IsEnabled="False"></TextBox>
+                    <TextBlock TextAlignment="Right" VerticalAlignment="Center"  Grid.Column="2">Loses:</TextBlock>
+                    <TextBox Name="tbLoses" Grid.Row="0" Grid.Column="3" Margin="5" IsEnabled="False"></TextBox>
+                    <TextBlock TextAlignment="Right" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" TextWrapping="Wrap"> Percent to win:</TextBlock>
+                    <TextBox Name="tbPercent" Grid.Row="1" Grid.Column="1" Margin="5" IsEnabled="False"></TextBox>
+                    <TextBlock TextAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="2">Score:</TextBlock>
+                    <TextBox Name="tbScore" Grid.Row="1" Grid.Column="3" Margin="5" IsEnabled="False"></TextBox>
+
+                    <GroupBox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Header="Games">
+                        <ListBox Name="lbInfo" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" Margin="0"/>
+                    </GroupBox>
+                </Grid>
+
+            </GroupBox>
+            <Button Name="btn_req" Grid.Column="2" Grid.Row="1" Margin="20,10,20,10" Click="btn_req_Click" Grid.ColumnSpan="2" >
+                <TextBlock Text="Send Request to player" TextWrapping="Wrap"/>
+            </Button>
+        </Grid>
+    </DockPanel>
 </Window>
