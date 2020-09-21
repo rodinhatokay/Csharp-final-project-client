@@ -43,40 +43,26 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PlayerInfo" nillable="true" type="tns:PlayerInfo" />
-  <xs:complexType name="ArrayOfGame">
+  <xs:complexType name="ArrayOfGameInfo">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Game" nillable="true" type="tns:Game" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GameInfo" nillable="true" type="tns:GameInfo" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfGame" nillable="true" type="tns:ArrayOfGame" />
-  <xs:complexType name="Game">
+  <xs:element name="ArrayOfGameInfo" nillable="true" type="tns:ArrayOfGameInfo" />
+  <xs:complexType name="GameInfo">
     <xs:sequence>
       <xs:element minOccurs="0" name="GameId" type="xs:int" />
       <xs:element minOccurs="0" name="GameOver" type="xs:boolean" />
-      <xs:element minOccurs="0" name="GameStart" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="PlayedAgainst_PlayerId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Player1" nillable="true" type="tns:Player" />
       <xs:element minOccurs="0" name="Player1Points" type="xs:int" />
-      <xs:element minOccurs="0" name="Player2" nillable="true" type="tns:Player" />
+      <xs:element minOccurs="0" name="Player1_id" type="xs:int" />
+      <xs:element minOccurs="0" name="Player1_username" type="xs:int" />
       <xs:element minOccurs="0" name="Player2Points" type="xs:int" />
-      <xs:element minOccurs="0" name="Player_PlayerId" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="Winner" nillable="true" type="tns:Player" />
-      <xs:element minOccurs="0" name="Winner_PlayerId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Player2_id" type="xs:int" />
+      <xs:element minOccurs="0" name="Player2_username" type="xs:int" />
+      <xs:element minOccurs="0" name="Winner_id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Game" nillable="true" type="tns:Game" />
-  <xs:complexType name="Player">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Games" nillable="true" type="tns:ArrayOfGame" />
-      <xs:element minOccurs="0" name="GamesAsOpponent" nillable="true" type="tns:ArrayOfGame" />
-      <xs:element minOccurs="0" name="GamesWon" nillable="true" type="tns:ArrayOfGame" />
-      <xs:element minOccurs="0" name="Pass" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PlayerId" type="xs:int" />
-      <xs:element minOccurs="0" name="Status" type="xs:int" />
-      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Player" nillable="true" type="tns:Player" />
+  <xs:element name="GameInfo" nillable="true" type="tns:GameInfo" />
   <xs:simpleType name="MoveResult">
     <xs:restriction base="xs:string">
       <xs:enumeration value="YouWon" />

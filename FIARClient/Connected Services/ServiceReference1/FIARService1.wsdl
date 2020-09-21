@@ -379,7 +379,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_Search_Input_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_GetPlayersGames_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -402,7 +402,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_Search_output_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_GetPlayersGames_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -837,11 +837,11 @@
   <wsdl:message name="IFIARService_GetAllPlayers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPlayersResponse" />
   </wsdl:message>
-  <wsdl:message name="IFIARService_Search_InputMessage">
-    <wsdl:part name="parameters" element="tns:Search" />
+  <wsdl:message name="IFIARService_GetPlayersGames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayersGames" />
   </wsdl:message>
-  <wsdl:message name="IFIARService_Search_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SearchResponse" />
+  <wsdl:message name="IFIARService_GetPlayersGames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayersGamesResponse" />
   </wsdl:message>
   <wsdl:message name="IFIARService_PlayerLogout_InputMessage">
     <wsdl:part name="parameters" element="tns:PlayerLogout" />
@@ -912,9 +912,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/GetAllPlayers" message="tns:IFIARService_GetAllPlayers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/GetAllPlayersResponse" message="tns:IFIARService_GetAllPlayers_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="Search">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/Search" message="tns:IFIARService_Search_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/SearchResponse" message="tns:IFIARService_Search_OutputMessage" />
+    <wsdl:operation name="GetPlayersGames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/GetPlayersGames" message="tns:IFIARService_GetPlayersGames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/GetPlayersGamesResponse" message="tns:IFIARService_GetPlayersGames_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="PlayerLogout">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/PlayerLogout" message="tns:IFIARService_PlayerLogout_InputMessage" />
@@ -1014,14 +1014,14 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Search">
-      <soap12:operation soapAction="http://tempuri.org/IFIARService/Search" style="document" />
+    <wsdl:operation name="GetPlayersGames">
+      <soap12:operation soapAction="http://tempuri.org/IFIARService/GetPlayersGames" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_Search_Input_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_GetPlayersGames_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_Search_output_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_GetPlayersGames_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

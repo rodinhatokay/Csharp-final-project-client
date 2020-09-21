@@ -4,23 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIARClient"
+        xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
         mc:Ignorable="d"
-         Title="Sreach games by two Players" Height="298.516" Width="492.75" ResizeMode="NoResize" Initialized="Window_Initialized" >
+         Title="Sreach games by two Players" Height="514.516" Width="492.75" ResizeMode="NoResize" Initialized="Window_Initialized" >
     <Grid Margin="10" Name="mainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="1.7*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" HorizontalContentAlignment="Right">First player:</Label>
-        <Label Grid.Row="1" HorizontalContentAlignment="Right">Second player:</Label>
-        <ComboBox Margin="5" Name="cbFirstActors" Grid.Row="0" Grid.Column="1" SelectionChanged="cbFirstActors_SelectionChanged"/>
-        <ComboBox Margin="24,10,10,83" Name="cbSecondActors" SelectionChanged="cbSecondActors_SelectionChanged" Grid.RowSpan="2"/>
-        <Button Margin="5" Grid.Row="2" Grid.Column="1" Width="70" Content="Search"
-                Click="Button_Click"/>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center">First player:</Label>
+        <Label Grid.Row="0" Grid.Column="3"  Grid.ColumnSpan="3"  HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center">Second player:</Label>
+        <ComboBox Margin="5" Name="cbFirstActors" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" SelectionChanged="cbFirstActors_SelectionChanged"/>
+        <ComboBox Margin="5" Name="cbSecondActors" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="3" SelectionChanged="cbSecondActors_SelectionChanged" />
+        <Label Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center">Tie</Label>
+        <Label Name="label_player1_wins" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">?</Label>
+        <Label Name="label_tie" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">?</Label>
+        <Label Name="label_player2_wins" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">?%</Label>
+        <Label Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center">Total</Label>
+        <Label Name="label_player1_games_wins" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">?</Label>
+        <Label Name="label_games_tie" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">?</Label>
+        <Label Name="label_player2_games_wins" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">?</Label>
+
+        <Label Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center">Points</Label>
+        <Label Name="label_player1_points" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">?</Label>
+        <Label Name="label_player2_points" Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="2" HorizontalContentAlignment="Right" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">?</Label>
+
+
     </Grid>
 </Window>

@@ -54,7 +54,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="Search">
+  <xs:element name="GetPlayersGames">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="player1" nillable="true" type="xs:string" />
@@ -62,10 +62,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SearchResponse">
+  <xs:element name="GetPlayersGamesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="SearchResult" nillable="true" type="q2:ArrayOfGame" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="GetPlayersGamesResult" nillable="true" type="q2:ArrayOfGameInfo" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

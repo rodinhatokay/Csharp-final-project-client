@@ -139,5 +139,12 @@ namespace FIARClient
             tbScore.Text = pi.Score.ToString();
             //tbPercent.Text = (pi.PlayedAgainst.Count == 0)? "0" : (pi.Wins * 100 / pi.PlayedAgainst.Count).ToString();
         }
+        private void MI_2players_Click(object sender, RoutedEventArgs e)
+        {
+            SearchBy2Players windowSearch = new SearchBy2Players(Client);
+            windowSearch.Client = Client;
+            windowSearch.Show();
+
+        }
     }
 }

@@ -31,59 +31,6 @@ namespace FIARClient
 
         }
 
-        private void MI_UserName_Click(object sender, RoutedEventArgs e)
-        {
-            SearchBy searchBy = new SearchBy();
-            searchBy.Client = Client;
-            searchBy.Label.Content = "Search by  user Name:";
-            searchBy.Status = SearchByStatus.UserName;
-            searchBy.ShowDialog();
-            dgData.ItemsSource = searchBy.Result;
-        }
-
-        private void MI_gamesPlayed_Click(object sender, RoutedEventArgs e)
-        {
-            SearchBy searchBy = new SearchBy();
-            searchBy.Client = Client;
-            searchBy.Label.Content = "Search by games Count:";
-            searchBy.Status = SearchByStatus.Games;
-            searchBy.ShowDialog();
-            dgData.ItemsSource = searchBy.Result;
-
-        }
-
-        private void MI_wins_Click(object sender, RoutedEventArgs e)
-        {
-            SearchBy searchBy = new SearchBy();
-            searchBy.Client = Client;
-            searchBy.Label.Content = "Search by wins Count:";
-            searchBy.Status = SearchByStatus.Wins;
-            searchBy.ShowDialog();
-            dgData.ItemsSource = searchBy.Result;
-
-        }
-
-        private void MI_loses_Click(object sender, RoutedEventArgs e)
-        {
-            SearchBy searchBy = new SearchBy();
-            searchBy.Client = Client;
-            searchBy.Label.Content = "Search by loses Count:";
-            searchBy.Status = SearchByStatus.Loses;
-            searchBy.ShowDialog();
-            dgData.ItemsSource = searchBy.Result;
-
-        }
-
-        private void MI_score_Click(object sender, RoutedEventArgs e)
-        {
-            SearchBy searchBy = new SearchBy();
-            searchBy.Client = Client;
-            searchBy.Label.Content = "Search by score:";
-            searchBy.Status = SearchByStatus.Score;
-            searchBy.ShowDialog();
-            dgData.ItemsSource = searchBy.Result;
-
-        }
 
         private void MI_allgames_Click(object sender, RoutedEventArgs e)
         {
@@ -110,13 +57,7 @@ namespace FIARClient
             }
         }
 
-        private void MI_2players_Click(object sender, RoutedEventArgs e)
-        {
-            SearchBy2Players windowSearch = new SearchBy2Players(Client);
-            windowSearch.Client = Client;
-            windowSearch.ShowDialog();
-            dgData.ItemsSource = windowSearch.Result;
-        }
+
 
     }
 

@@ -11,6 +11,7 @@ namespace FIARClient
     {
         public player(PlayerInfo p)
         {
+            this.id = p.id;
             this.username = p.username;
             this.Score = p.Score;
             this.Loses = p.Loses;

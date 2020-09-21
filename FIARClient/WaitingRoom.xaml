@@ -11,7 +11,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Players list" Name="MI_userName"  Click="btn_search_Click"/>
-
+            <MenuItem Header="by 2 players.." Name="MI_2players" Click="MI_2players_Click" />
         </Menu>
         <Grid Margin="0,10,0,3">
             <Grid.ColumnDefinitions>

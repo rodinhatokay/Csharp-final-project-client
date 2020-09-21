@@ -5,22 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIARClient"
         mc:Ignorable="d"
-        Title="Search" Height="200" Width="500" ResizeMode="NoResize">
+        Title="Search" Height="309.302" Width="318.604" ResizeMode="NoResize">
     <DockPanel>
-        <Menu DockPanel.Dock="Top">
-            <MenuItem Header="_Search" Margin="7,0,0,0" >
-                <MenuItem Header="by user name.." Name="MI_userName" Click="MI_UserName_Click" />
-                <MenuItem Header="by count games.." Name="MI_gamesPlayed" Click="MI_gamesPlayed_Click"/>
-                <MenuItem Header="by wins.." Name="MI_wins" Click="MI_wins_Click" />
-                <MenuItem Header="by loses.." Name="MI_loses" Click="MI_loses_Click" />
-                <MenuItem Header="by score.." Name="MI_score"  Click="MI_score_Click"/>
-                <MenuItem Header="all games.." Name="MI_allgames" Click="MI_allgames_Click"/>
-                <MenuItem Header="games currently playing.." Name="MI_currentlyplaying" Click="MI_currentlyplaying_Click" />
-                <MenuItem Header="by 2 players.." Name="MI_2players" Click="MI_2players_Click" />
 
-            </MenuItem>
-        </Menu>
-        <Grid>
+        <Grid Width="302">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="63*"/>
                 <ColumnDefinition Width="174*"/>
@@ -30,8 +18,8 @@
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Name="tbHeader" Margin="10,10,10,10" Grid.ColumnSpan="2" Text="Search Results" />
-            <DataGrid  Name="dgData" Margin="10,2,10,10" Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="false" FlowDirection="LeftToRight">
+            <TextBlock Name="tbHeader" Margin="5,10" Grid.ColumnSpan="2" Text="Users:" />
+            <DataGrid  Name="dgData" Margin="5" Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="false" FlowDirection="LeftToRight">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding id}" />
                     <DataGridTextColumn Header="User Name" Binding="{Binding username}" />
