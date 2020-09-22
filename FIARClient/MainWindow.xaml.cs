@@ -40,6 +40,7 @@ namespace FIARClient
                 {
                     ClientCallback callback = new ClientCallback();
                     FIARServiceClient client = new FIARServiceClient(new InstanceContext(callback));
+
                     string username = tbUserName.Text.Trim();
                     string pass = tbPass.Password.ToString();
 
@@ -56,7 +57,7 @@ namespace FIARClient
                 {
                     MessageBox.Show(ex.Detail.Details);
                 }
-                catch(FaultException ex)
+                catch (FaultException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }

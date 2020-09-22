@@ -2,27 +2,49 @@
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfFIARService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfFIARService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="PlayerAlreadyExistsInDataBase">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="PlayerAlreadyExistsInDataBase" nillable="true" type="tns:PlayerAlreadyExistsInDataBase" />
-  <xs:complexType name="OpponentDisconnectedFault">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Detail" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="OpponentDisconnectedFault" nillable="true" type="tns:OpponentDisconnectedFault" />
-  <xs:complexType name="PlayerDoesntExistInDataBase">
+  <xs:complexType name="CustomFault">
     <xs:sequence>
       <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
     </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CustomFault" nillable="true" type="tns:CustomFault" />
+  <xs:complexType name="OpponentDisconnectedFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OpponentDisconnectedFault" nillable="true" type="tns:OpponentDisconnectedFault" />
+  <xs:complexType name="OpponentNotAvailableFault">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OpponentNotAvailableFault" nillable="true" type="tns:OpponentNotAvailableFault" />
+  <xs:complexType name="PlayerDoesntExistInDataBase">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="PlayerDoesntExistInDataBase" nillable="true" type="tns:PlayerDoesntExistInDataBase" />
   <xs:complexType name="PlayerAlreadyConnectedFault">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Details" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CustomFault">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="PlayerAlreadyConnectedFault" nillable="true" type="tns:PlayerAlreadyConnectedFault" />
   <xs:complexType name="ArrayOfPlayerInfo">
@@ -37,12 +59,21 @@
       <xs:element minOccurs="0" name="Loses" type="xs:int" />
       <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="PlayedAgainst" nillable="true" type="q1:ArrayOfstring" />
       <xs:element minOccurs="0" name="Score" type="xs:int" />
+      <xs:element minOccurs="0" name="Status" type="tns:Status" />
       <xs:element minOccurs="0" name="Wins" type="xs:int" />
       <xs:element minOccurs="0" name="id" type="xs:int" />
       <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="PlayerInfo" nillable="true" type="tns:PlayerInfo" />
+  <xs:simpleType name="Status">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Disconnected" />
+      <xs:enumeration value="Online" />
+      <xs:enumeration value="Playing" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Status" nillable="true" type="tns:Status" />
   <xs:complexType name="ArrayOfGameInfo">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="GameInfo" nillable="true" type="tns:GameInfo" />
@@ -55,10 +86,8 @@
       <xs:element minOccurs="0" name="GameOver" type="xs:boolean" />
       <xs:element minOccurs="0" name="Player1Points" type="xs:int" />
       <xs:element minOccurs="0" name="Player1_id" type="xs:int" />
-      <xs:element minOccurs="0" name="Player1_username" type="xs:int" />
       <xs:element minOccurs="0" name="Player2Points" type="xs:int" />
       <xs:element minOccurs="0" name="Player2_id" type="xs:int" />
-      <xs:element minOccurs="0" name="Player2_username" type="xs:int" />
       <xs:element minOccurs="0" name="Winner_id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>

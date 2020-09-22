@@ -172,7 +172,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_InvatationSend_Input_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_InvitationSend_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -195,7 +195,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_InvatationSend_output_policy">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_InvitationSend_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -218,7 +218,30 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_InvatationSend_OpponentDisconnectedFaultFault_Fault">
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_InvitationSend_OpponentDisconnectedFaultFault_Fault">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_InvitationSend_OpponentNotAvailableFaultFault_Fault">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -448,29 +471,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_PlayerLogout_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_Init_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -518,29 +518,6 @@
     </wsp:ExactlyOne>
   </wsp:Policy>
   <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_Disconnected_Input_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_Disconnected_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -747,6 +724,29 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_OtherPlayerDisconnected_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_UpdateClients_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -810,14 +810,17 @@
   <wsdl:message name="IFIARService_RegisterPlayer_PlayerAlreadyExistsInDataBaseFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q1:PlayerAlreadyExistsInDataBase" />
   </wsdl:message>
-  <wsdl:message name="IFIARService_InvatationSend_InputMessage">
-    <wsdl:part name="parameters" element="tns:InvatationSend" />
+  <wsdl:message name="IFIARService_InvitationSend_InputMessage">
+    <wsdl:part name="parameters" element="tns:InvitationSend" />
   </wsdl:message>
-  <wsdl:message name="IFIARService_InvatationSend_OutputMessage">
-    <wsdl:part name="parameters" element="tns:InvatationSendResponse" />
+  <wsdl:message name="IFIARService_InvitationSend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InvitationSendResponse" />
   </wsdl:message>
-  <wsdl:message name="IFIARService_InvatationSend_OpponentDisconnectedFaultFault_FaultMessage">
+  <wsdl:message name="IFIARService_InvitationSend_OpponentDisconnectedFaultFault_FaultMessage">
     <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q2:OpponentDisconnectedFault" />
+  </wsdl:message>
+  <wsdl:message name="IFIARService_InvitationSend_OpponentNotAvailableFaultFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q3:OpponentNotAvailableFault" />
   </wsdl:message>
   <wsdl:message name="IFIARService_PlayerLogin_InputMessage">
     <wsdl:part name="parameters" element="tns:PlayerLogin" />
@@ -826,10 +829,10 @@
     <wsdl:part name="parameters" element="tns:PlayerLoginResponse" />
   </wsdl:message>
   <wsdl:message name="IFIARService_PlayerLogin_PlayerDoesntExistInDataBaseFault_FaultMessage">
-    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q3:PlayerDoesntExistInDataBase" />
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q4:PlayerDoesntExistInDataBase" />
   </wsdl:message>
   <wsdl:message name="IFIARService_PlayerLogin_PlayerAlreadyConnectedFaultFault_FaultMessage">
-    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q4:PlayerAlreadyConnectedFault" />
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q5:PlayerAlreadyConnectedFault" />
   </wsdl:message>
   <wsdl:message name="IFIARService_GetAllPlayers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPlayers" />
@@ -846,9 +849,6 @@
   <wsdl:message name="IFIARService_PlayerLogout_InputMessage">
     <wsdl:part name="parameters" element="tns:PlayerLogout" />
   </wsdl:message>
-  <wsdl:message name="IFIARService_PlayerLogout_OutputMessage">
-    <wsdl:part name="parameters" element="tns:PlayerLogoutResponse" />
-  </wsdl:message>
   <wsdl:message name="IFIARService_Init_InputMessage">
     <wsdl:part name="parameters" element="tns:Init" />
   </wsdl:message>
@@ -858,9 +858,6 @@
   <wsdl:message name="IFIARService_Disconnected_InputMessage">
     <wsdl:part name="parameters" element="tns:Disconnected" />
   </wsdl:message>
-  <wsdl:message name="IFIARService_Disconnected_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DisconnectedResponse" />
-  </wsdl:message>
   <wsdl:message name="IFIARService_ReportMove_InputMessage">
     <wsdl:part name="parameters" element="tns:ReportMove" />
   </wsdl:message>
@@ -868,7 +865,7 @@
     <wsdl:part name="parameters" element="tns:ReportMoveResponse" />
   </wsdl:message>
   <wsdl:message name="IFIARService_ReportMove_OpponentDisconnectedFaultFault_FaultMessage">
-    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q5:OpponentDisconnectedFault" />
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/WcfFIARService" name="detail" element="q6:OpponentDisconnectedFault" />
   </wsdl:message>
   <wsdl:message name="IFIARService_GetAvalibalePlayers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAvalibalePlayers" />
@@ -885,6 +882,9 @@
   <wsdl:message name="IFIARService_OtherPlayerMoved_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:OtherPlayerMoved" />
   </wsdl:message>
+  <wsdl:message name="IFIARService_OtherPlayerDisconnected_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:OtherPlayerDisconnected" />
+  </wsdl:message>
   <wsdl:message name="IFIARService_UpdateClients_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:UpdateClients" />
   </wsdl:message>
@@ -897,10 +897,11 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/RegisterPlayerResponse" message="tns:IFIARService_RegisterPlayer_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IFIARService/RegisterPlayerPlayerAlreadyExistsInDataBaseFault" name="PlayerAlreadyExistsInDataBaseFault" message="tns:IFIARService_RegisterPlayer_PlayerAlreadyExistsInDataBaseFault_FaultMessage" />
     </wsdl:operation>
-    <wsdl:operation name="InvatationSend">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/InvatationSend" message="tns:IFIARService_InvatationSend_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/InvatationSendResponse" message="tns:IFIARService_InvatationSend_OutputMessage" />
-      <wsdl:fault wsaw:Action="http://tempuri.org/IFIARService/InvatationSendOpponentDisconnectedFaultFault" name="OpponentDisconnectedFaultFault" message="tns:IFIARService_InvatationSend_OpponentDisconnectedFaultFault_FaultMessage" />
+    <wsdl:operation name="InvitationSend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/InvitationSend" message="tns:IFIARService_InvitationSend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/InvitationSendResponse" message="tns:IFIARService_InvitationSend_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IFIARService/InvitationSendOpponentDisconnectedFaultFault" name="OpponentDisconnectedFaultFault" message="tns:IFIARService_InvitationSend_OpponentDisconnectedFaultFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IFIARService/InvitationSendOpponentNotAvailableFaultFault" name="OpponentNotAvailableFaultFault" message="tns:IFIARService_InvitationSend_OpponentNotAvailableFaultFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="PlayerLogin">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/PlayerLogin" message="tns:IFIARService_PlayerLogin_InputMessage" />
@@ -918,7 +919,6 @@
     </wsdl:operation>
     <wsdl:operation name="PlayerLogout">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/PlayerLogout" message="tns:IFIARService_PlayerLogout_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/PlayerLogoutResponse" message="tns:IFIARService_PlayerLogout_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Init">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/Init" message="tns:IFIARService_Init_InputMessage" />
@@ -926,7 +926,6 @@
     </wsdl:operation>
     <wsdl:operation name="Disconnected">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/Disconnected" message="tns:IFIARService_Disconnected_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/DisconnectedResponse" message="tns:IFIARService_Disconnected_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ReportMove">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/ReportMove" message="tns:IFIARService_ReportMove_InputMessage" />
@@ -943,6 +942,9 @@
     </wsdl:operation>
     <wsdl:operation name="OtherPlayerMoved">
       <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/OtherPlayerMoved" message="tns:IFIARService_OtherPlayerMoved_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OtherPlayerDisconnected">
+      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/OtherPlayerDisconnected" message="tns:IFIARService_OtherPlayerDisconnected_OutputCallbackMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateClients">
       <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/UpdateClients" message="tns:IFIARService_UpdateClients_OutputCallbackMessage" />
@@ -969,19 +971,23 @@
         <soap12:fault use="literal" name="PlayerAlreadyExistsInDataBaseFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
-    <wsdl:operation name="InvatationSend">
-      <soap12:operation soapAction="http://tempuri.org/IFIARService/InvatationSend" style="document" />
+    <wsdl:operation name="InvitationSend">
+      <soap12:operation soapAction="http://tempuri.org/IFIARService/InvitationSend" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_InvatationSend_Input_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_InvitationSend_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_InvatationSend_output_policy" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_InvitationSend_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
       <wsdl:fault name="OpponentDisconnectedFaultFault">
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_InvatationSend_OpponentDisconnectedFaultFault_Fault" />
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_InvitationSend_OpponentDisconnectedFaultFault_Fault" />
         <soap12:fault use="literal" name="OpponentDisconnectedFaultFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="OpponentNotAvailableFaultFault">
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_InvitationSend_OpponentNotAvailableFaultFault_Fault" />
+        <soap12:fault use="literal" name="OpponentNotAvailableFaultFault" namespace="" />
       </wsdl:fault>
     </wsdl:operation>
     <wsdl:operation name="PlayerLogin">
@@ -1031,10 +1037,6 @@
         <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_PlayerLogout_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_PlayerLogout_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="Init">
       <soap12:operation soapAction="http://tempuri.org/IFIARService/Init" style="document" />
@@ -1053,10 +1055,6 @@
         <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_Disconnected_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_Disconnected_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ReportMove">
       <soap12:operation soapAction="http://tempuri.org/IFIARService/ReportMove" style="document" />
@@ -1099,6 +1097,13 @@
       <soap12:operation soapAction="http://tempuri.org/IFIARService/OtherPlayerMoved" style="document" />
       <wsdl:output>
         <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_OtherPlayerMoved_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OtherPlayerDisconnected">
+      <soap12:operation soapAction="http://tempuri.org/IFIARService/OtherPlayerDisconnected" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_OtherPlayerDisconnected_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

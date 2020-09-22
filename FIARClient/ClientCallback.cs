@@ -19,10 +19,14 @@ namespace FIARClient
         internal Action<List<PlayerInfo>> getPlayers;
 
         public delegate Task move(MoveResult result, int col);
+
+        internal Action<MoveResult> EndGame;
+
+
         public move madeMove;
         public void OtherPlayerMoved(MoveResult result, int col)
         {
-            if(MoveResult.YouWon == result )
+            if (MoveResult.YouWon == result)
             {
                 madeMove(MoveResult.YouLost, col);
             }
@@ -31,6 +35,11 @@ namespace FIARClient
                 madeMove(result, col);
             }
             return;
+        }
+
+        public void OtherPlayerDisconnected()
+        {
+            EndGame(MoveResult.PlayerLeft);
         }
 
         public bool SendInvite(string username)

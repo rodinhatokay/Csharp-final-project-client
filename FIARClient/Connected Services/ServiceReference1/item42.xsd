@@ -14,18 +14,18 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="InvatationSend">
+  <xs:element name="InvitationSend">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="from" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="to" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fromPlayer" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="toPlayer" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="InvatationSendResponse">
+  <xs:element name="InvitationSendResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="InvatationSendResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="InvitationSendResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -76,11 +76,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="PlayerLogoutResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
   <xs:element name="Init">
     <xs:complexType>
       <xs:sequence />
@@ -96,11 +91,6 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="DisconnectedResponse">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="ReportMove">
@@ -150,6 +140,11 @@
         <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="result" type="q5:MoveResult" />
         <xs:element minOccurs="0" name="col" type="xs:int" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OtherPlayerDisconnected">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateClients">

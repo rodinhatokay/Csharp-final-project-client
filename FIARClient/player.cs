@@ -13,8 +13,12 @@ namespace FIARClient
         {
             this.id = p.id;
             this.username = p.username;
+            this.Wins = p.Wins;
+            this.Games = p.Games;
             this.Score = p.Score;
             this.Loses = p.Loses;
+            this.Status = p.Status;
+
             this.PlayedAgainst = p.PlayedAgainst;
 
         }

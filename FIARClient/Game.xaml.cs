@@ -29,6 +29,7 @@ namespace FIARClient
         private ClientCallback callback;
 
         private bool turn;
+        private bool gameEnded = false;
         public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn)
         {
             this.UserName = us;
@@ -36,7 +37,7 @@ namespace FIARClient
             this.Client = client;
             this.callback.madeMove = UpdateGame;
             this.turn = turn;
-
+            callback.EndGame = this.EndGame;
             InitializeComponent();
             playerColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
             //opponentColor = new SolidColorBrush(Color.FromArgb(64, 32, 191, 255));
@@ -112,6 +113,8 @@ namespace FIARClient
                 if (res == MoveResult.YouLost)
                     MessageBox.Show("Game ended, You Lost");
                 animating = true;
+
+                gameEnded = true;
             }
 
 
@@ -163,7 +166,9 @@ namespace FIARClient
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Environment.Exit(Environment.ExitCode);
+            if (!gameEnded)
+
+                Client.Disconnected(UserName);
         }
     }
 }

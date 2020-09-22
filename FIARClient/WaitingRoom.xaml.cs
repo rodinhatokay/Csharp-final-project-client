@@ -88,9 +88,14 @@ namespace FIARClient
 
         private void btn_req_Click(object sender, RoutedEventArgs e)
         {
+            if (lbWaitingRoom.SelectedIndex == -1)
+            {
+                MessageBox.Show("You need to pick an opponent");
+                return;
+            }
             PlayerInfo pi = lbWaitingRoom.SelectedItem as PlayerInfo;
             string name = pi.username;
-            bool result = Client.InvatationSend(UserName, name);
+            bool result = Client.InvitationSend(UserName, name);
             if (result == true)
             {
                 Game g = new Game(Client, this.UserName, this.callback, true);
@@ -132,12 +137,17 @@ namespace FIARClient
 
         private void lbWaitingRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (lbWaitingRoom.SelectedIndex == -1)
+            {
+                return;
+            }
             PlayerInfo pi = lbWaitingRoom.SelectedItem as PlayerInfo;
 
             tbWins.Text = pi.Wins.ToString();
             tbLoses.Text = pi.Loses.ToString();
             tbScore.Text = pi.Score.ToString();
-            //tbPercent.Text = (pi.PlayedAgainst.Count == 0)? "0" : (pi.Wins * 100 / pi.PlayedAgainst.Count).ToString();
+            tbPercent.Text = (pi.Games == 0) ? "0" : (pi.Wins * 100 / pi.Games).ToString();
+            lbInfo.ItemsSource = pi.PlayedAgainst;
         }
         private void MI_2players_Click(object sender, RoutedEventArgs e)
         {

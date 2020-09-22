@@ -15,9 +15,14 @@ namespace FIARClient.ServiceReference1 {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PlayerAlreadyExistsInDataBase", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomFault", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
     [System.SerializableAttribute()]
-    public partial class PlayerAlreadyExistsInDataBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FIARClient.ServiceReference1.OpponentDisconnectedFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FIARClient.ServiceReference1.OpponentNotAvailableFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FIARClient.ServiceReference1.PlayerDoesntExistInDataBase))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FIARClient.ServiceReference1.PlayerAlreadyConnectedFault))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(FIARClient.ServiceReference1.PlayerAlreadyExistsInDataBase))]
+    public partial class CustomFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -62,135 +67,35 @@ namespace FIARClient.ServiceReference1 {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="OpponentDisconnectedFault", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
     [System.SerializableAttribute()]
-    public partial class OpponentDisconnectedFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DetailField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Detail {
-            get {
-                return this.DetailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DetailField, value) != true)) {
-                    this.DetailField = value;
-                    this.RaisePropertyChanged("Detail");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
+    public partial class OpponentDisconnectedFault : FIARClient.ServiceReference1.CustomFault {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OpponentNotAvailableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+    [System.SerializableAttribute()]
+    public partial class OpponentNotAvailableFault : FIARClient.ServiceReference1.CustomFault {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PlayerDoesntExistInDataBase", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
     [System.SerializableAttribute()]
-    public partial class PlayerDoesntExistInDataBase : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DetailsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Details {
-            get {
-                return this.DetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
-                    this.DetailsField = value;
-                    this.RaisePropertyChanged("Details");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
+    public partial class PlayerDoesntExistInDataBase : FIARClient.ServiceReference1.CustomFault {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="PlayerAlreadyConnectedFault", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
     [System.SerializableAttribute()]
-    public partial class PlayerAlreadyConnectedFault : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DetailsField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Details {
-            get {
-                return this.DetailsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DetailsField, value) != true)) {
-                    this.DetailsField = value;
-                    this.RaisePropertyChanged("Details");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
+    public partial class PlayerAlreadyConnectedFault : FIARClient.ServiceReference1.CustomFault {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PlayerAlreadyExistsInDataBase", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+    [System.SerializableAttribute()]
+    public partial class PlayerAlreadyExistsInDataBase : FIARClient.ServiceReference1.CustomFault {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -213,6 +118,9 @@ namespace FIARClient.ServiceReference1 {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ScoreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private FIARClient.ServiceReference1.Status StatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int WinsField;
@@ -286,6 +194,19 @@ namespace FIARClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public FIARClient.ServiceReference1.Status Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Wins {
             get {
                 return this.WinsField;
@@ -334,6 +255,20 @@ namespace FIARClient.ServiceReference1 {
         }
     }
     
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Status", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+    public enum Status : int {
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Disconnected = 0,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Online = 1,
+        
+        [System.Runtime.Serialization.EnumMemberAttribute()]
+        Playing = 2,
+    }
+    
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="GameInfo", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
@@ -356,16 +291,10 @@ namespace FIARClient.ServiceReference1 {
         private int Player1_idField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Player1_usernameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Player2PointsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Player2_idField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int Player2_usernameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int Winner_idField;
@@ -433,19 +362,6 @@ namespace FIARClient.ServiceReference1 {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Player1_username {
-            get {
-                return this.Player1_usernameField;
-            }
-            set {
-                if ((this.Player1_usernameField.Equals(value) != true)) {
-                    this.Player1_usernameField = value;
-                    this.RaisePropertyChanged("Player1_username");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Player2Points {
             get {
                 return this.Player2PointsField;
@@ -467,19 +383,6 @@ namespace FIARClient.ServiceReference1 {
                 if ((this.Player2_idField.Equals(value) != true)) {
                     this.Player2_idField = value;
                     this.RaisePropertyChanged("Player2_id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Player2_username {
-            get {
-                return this.Player2_usernameField;
-            }
-            set {
-                if ((this.Player2_usernameField.Equals(value) != true)) {
-                    this.Player2_usernameField = value;
-                    this.RaisePropertyChanged("Player2_username");
                 }
             }
         }
@@ -544,12 +447,13 @@ namespace FIARClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/RegisterPlayer", ReplyAction="http://tempuri.org/IFIARService/RegisterPlayerResponse")]
         System.Threading.Tasks.Task RegisterPlayerAsync(string username, string pass);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/InvatationSend", ReplyAction="http://tempuri.org/IFIARService/InvatationSendResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(FIARClient.ServiceReference1.OpponentDisconnectedFault), Action="http://tempuri.org/IFIARService/InvatationSendOpponentDisconnectedFaultFault", Name="OpponentDisconnectedFault", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
-        bool InvatationSend(string from, string to);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/InvitationSend", ReplyAction="http://tempuri.org/IFIARService/InvitationSendResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FIARClient.ServiceReference1.OpponentDisconnectedFault), Action="http://tempuri.org/IFIARService/InvitationSendOpponentDisconnectedFaultFault", Name="OpponentDisconnectedFault", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+        [System.ServiceModel.FaultContractAttribute(typeof(FIARClient.ServiceReference1.OpponentNotAvailableFault), Action="http://tempuri.org/IFIARService/InvitationSendOpponentNotAvailableFaultFault", Name="OpponentNotAvailableFault", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
+        bool InvitationSend(string fromPlayer, string toPlayer);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/InvatationSend", ReplyAction="http://tempuri.org/IFIARService/InvatationSendResponse")]
-        System.Threading.Tasks.Task<bool> InvatationSendAsync(string from, string to);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/InvitationSend", ReplyAction="http://tempuri.org/IFIARService/InvitationSendResponse")]
+        System.Threading.Tasks.Task<bool> InvitationSendAsync(string fromPlayer, string toPlayer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/PlayerLogin", ReplyAction="http://tempuri.org/IFIARService/PlayerLoginResponse")]
         [System.ServiceModel.FaultContractAttribute(typeof(FIARClient.ServiceReference1.PlayerDoesntExistInDataBase), Action="http://tempuri.org/IFIARService/PlayerLoginPlayerDoesntExistInDataBaseFault", Name="PlayerDoesntExistInDataBase", Namespace="http://schemas.datacontract.org/2004/07/WcfFIARService")]
@@ -571,10 +475,10 @@ namespace FIARClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/GetPlayersGames", ReplyAction="http://tempuri.org/IFIARService/GetPlayersGamesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<FIARClient.ServiceReference1.GameInfo>> GetPlayersGamesAsync(string player1, string player2);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/PlayerLogout", ReplyAction="http://tempuri.org/IFIARService/PlayerLogoutResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/PlayerLogout")]
         void PlayerLogout(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/PlayerLogout", ReplyAction="http://tempuri.org/IFIARService/PlayerLogoutResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/PlayerLogout")]
         System.Threading.Tasks.Task PlayerLogoutAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/Init", ReplyAction="http://tempuri.org/IFIARService/InitResponse")]
@@ -583,10 +487,10 @@ namespace FIARClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/Init", ReplyAction="http://tempuri.org/IFIARService/InitResponse")]
         System.Threading.Tasks.Task InitAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/Disconnected", ReplyAction="http://tempuri.org/IFIARService/DisconnectedResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/Disconnected")]
         void Disconnected(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/Disconnected", ReplyAction="http://tempuri.org/IFIARService/DisconnectedResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/Disconnected")]
         System.Threading.Tasks.Task DisconnectedAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/ReportMove", ReplyAction="http://tempuri.org/IFIARService/ReportMoveResponse")]
@@ -611,6 +515,9 @@ namespace FIARClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/OtherPlayerMoved")]
         void OtherPlayerMoved(FIARClient.ServiceReference1.MoveResult result, int col);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/OtherPlayerDisconnected")]
+        void OtherPlayerDisconnected();
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/UpdateClients")]
         void UpdateClients(System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo> players);
@@ -655,12 +562,12 @@ namespace FIARClient.ServiceReference1 {
             return base.Channel.RegisterPlayerAsync(username, pass);
         }
         
-        public bool InvatationSend(string from, string to) {
-            return base.Channel.InvatationSend(from, to);
+        public bool InvitationSend(string fromPlayer, string toPlayer) {
+            return base.Channel.InvitationSend(fromPlayer, toPlayer);
         }
         
-        public System.Threading.Tasks.Task<bool> InvatationSendAsync(string from, string to) {
-            return base.Channel.InvatationSendAsync(from, to);
+        public System.Threading.Tasks.Task<bool> InvitationSendAsync(string fromPlayer, string toPlayer) {
+            return base.Channel.InvitationSendAsync(fromPlayer, toPlayer);
         }
         
         public void PlayerLogin(string username, string password) {
