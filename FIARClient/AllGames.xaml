@@ -1,11 +1,11 @@
-﻿<Window x:Class="FIARClient.Search"
+﻿<Window x:Class="FIARClient.AllGames"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIARClient"
         mc:Ignorable="d"
-        Title="Search" Height="309.302" Width="318.604" ResizeMode="NoResize">
+        Title="Search" Height="309.302" Width="350.604" ResizeMode="NoResize">
     <DockPanel>
 
         <Grid Width="302">
@@ -18,15 +18,16 @@
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Name="tbHeader" Margin="5,10" Grid.ColumnSpan="2" Text="Users:" />
+            <TextBlock Name="tbHeader" Margin="5,10" Grid.ColumnSpan="2" Text="All games:" />
             <DataGrid IsReadOnly="True"  Name="dgData" Margin="5" Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="false" FlowDirection="LeftToRight">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="ID" Binding="{Binding id}" />
-                    <DataGridTextColumn Header="User Name" Binding="{Binding username}" />
-                    <DataGridTextColumn Header="Score" Binding="{Binding Score}" />
-                    <DataGridTextColumn Header="Wins" Binding="{Binding Wins}" />
-                    <DataGridTextColumn Header="Loses" Binding="{Binding Loses}" />
-                    <DataGridTextColumn Header="Total Games" Binding="{Binding Games}" />
+                    <DataGridTextColumn  Header="ID" Binding="{Binding GameId}" />
+                    <DataGridTextColumn Header="Player 1" Binding="{Binding Player1_name}" />
+                    <DataGridTextColumn Header="Player 2" Binding="{Binding Player2_name}" />
+                    <DataGridTextColumn Header="Winner" Binding="{Binding Winner}" />
+                    <DataGridTextColumn Header="Winner Score" Binding="{Binding WinnerScore}" />
+                    <DataGridTextColumn Header="Date" Binding="{Binding GameStartDate}" />
+                    <!--<DataGridTextColumn Header="Total Games" Binding="{Binding Games}" />-->
                 </DataGrid.Columns>
             </DataGrid>
 

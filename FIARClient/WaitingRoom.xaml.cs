@@ -156,5 +156,19 @@ namespace FIARClient
             windowSearch.Show();
 
         }
+
+        private void MI_gamesEnded_Click(object sender, RoutedEventArgs e)
+        {
+            AllGames searchWindow = new AllGames(Client);
+            searchWindow.Client = Client;
+            searchWindow.Show();
+        }
+
+        private void MI_gamesOngoing_Click(object sender, RoutedEventArgs e)
+        {
+            OngoingGames searchWindow = new OngoingGames(Client);
+            searchWindow.Client = Client;
+            searchWindow.Show();
+        }
     }
 }

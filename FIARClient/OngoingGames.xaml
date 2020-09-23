@@ -1,0 +1,33 @@
+﻿<Window x:Class="FIARClient.OngoingGames"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FIARClient"
+        mc:Ignorable="d"
+        Title="Search" Height="309.302" Width="200" ResizeMode="NoResize">
+    <DockPanel>
+
+        <Grid Width="183">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="63*"/>
+                <ColumnDefinition Width="174*"/>
+                <ColumnDefinition Width="238*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Name="tbHeader" Margin="5,10" Grid.ColumnSpan="2" Text="Ongoing games:" />
+            <DataGrid IsReadOnly="True"  Name="dgData" Margin="5,5,0,5" Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="false" FlowDirection="LeftToRight" HorizontalAlignment="Left" Width="168">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Player 1" Binding="{Binding Player1_name}" />
+                    <DataGridTextColumn Header="Player 2" Binding="{Binding Player2_name}" />
+                    <DataGridTextColumn Header="Start Time" Binding="{Binding GameStartTime}" />
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+        </Grid>
+    </DockPanel>
+</Window>

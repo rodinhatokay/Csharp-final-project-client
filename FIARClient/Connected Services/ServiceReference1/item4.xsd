@@ -84,10 +84,16 @@
     <xs:sequence>
       <xs:element minOccurs="0" name="GameId" type="xs:int" />
       <xs:element minOccurs="0" name="GameOver" type="xs:boolean" />
+      <xs:element minOccurs="0" name="GameStartDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="GameStartTime" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Player1Points" type="xs:int" />
       <xs:element minOccurs="0" name="Player1_id" type="xs:int" />
+      <xs:element minOccurs="0" name="Player1_name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Player2Points" type="xs:int" />
       <xs:element minOccurs="0" name="Player2_id" type="xs:int" />
+      <xs:element minOccurs="0" name="Player2_name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Winner" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WinnerScore" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Winner_id" type="xs:int" />
     </xs:sequence>
   </xs:complexType>

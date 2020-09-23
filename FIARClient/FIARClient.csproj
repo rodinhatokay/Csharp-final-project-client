@@ -72,6 +72,9 @@
     <Compile Include="InvitationDialog.xaml.cs">
       <DependentUpon>InvitationDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OngoingGames.xaml.cs">
+      <DependentUpon>OngoingGames.xaml</DependentUpon>
+    </Compile>
     <Compile Include="player.cs" />
     <Compile Include="RegisterAcc.xaml.cs">
       <DependentUpon>RegisterAcc.xaml</DependentUpon>
@@ -81,6 +84,9 @@
     </Compile>
     <Compile Include="SearchBy2Players.xaml.cs">
       <DependentUpon>SearchBy2Players.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllGames.xaml.cs">
+      <DependentUpon>AllGames.xaml</DependentUpon>
     </Compile>
     <Compile Include="WaitingRoom.xaml.cs">
       <DependentUpon>WaitingRoom.xaml</DependentUpon>
@@ -105,6 +111,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="OngoingGames.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RegisterAcc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -114,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchBy2Players.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllGames.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

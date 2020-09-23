@@ -36,7 +36,6 @@ D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\Invitat
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\MainWindow.g.cs
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\RegisterAcc.g.cs
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\Search.g.cs
-D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\SearchBy.g.cs
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\SearchBy2Players.g.cs
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\WaitingRoom.g.cs
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\App.g.cs
@@ -47,7 +46,6 @@ D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\Invitat
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\MainWindow.baml
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\RegisterAcc.baml
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\Search.baml
-D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\SearchBy.baml
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\SearchBy2Players.baml
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\WaitingRoom.baml
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.g.resources
@@ -86,3 +84,9 @@ C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug
 C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\bin\Debug\DotNetProjects.DataVisualization.Toolkit.dll
 C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.csproj.CopyComplete
 C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\bin\Debug\DotNetProjects.DataVisualization.Toolkit.dll
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\OngoingGames.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\AllGames.g.cs
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\OngoingGames.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\AllGames.baml
+D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.csproj.CopyComplete
