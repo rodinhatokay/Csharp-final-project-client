@@ -47,6 +47,13 @@ namespace FIARClient
         }
 
 
+        public void UpdatePlayersAvailable()
+        {
+            players = Client.GetAvalibalePlayers();
+            lbWaitingRoom.ItemsSource = initPlayers(players);
+        }
+
+
         private void GetPlayers(List<PlayerInfo> players)
         {
             this.players = players;
@@ -75,16 +82,14 @@ namespace FIARClient
 
             if (dialog.Result == true)
             {
-                Game g = new Game(Client, this.UserName, this.callback, false);
-                //this.Hide();
+                Game g = new Game(Client, this.UserName, this.callback, false,this);
+                this.Hide();
                 g.Show();
-                //this.Show();
                 return true;
+                
             }
             return false;
         }
-
-
 
         private void btn_req_Click(object sender, RoutedEventArgs e)
         {
@@ -98,13 +103,9 @@ namespace FIARClient
             bool result = Client.InvitationSend(UserName, name);
             if (result == true)
             {
-                Game g = new Game(Client, this.UserName, this.callback, true);
-                //this.Hide();
+                Game g = new Game(Client, this.UserName, this.callback, true,this);
+                this.Hide();
                 g.Show();
-                //this.Show();
-
-                //MessageBox.Show(name + "ACCEPTED TO PLAY WITH YOU");
-
             }
             else
             {

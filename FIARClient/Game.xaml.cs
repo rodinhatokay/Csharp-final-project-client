@@ -30,8 +30,9 @@ namespace FIARClient
 
         private bool turn;
         private bool gameEnded = false;
-        public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn)
+        public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn, WaitingRoom waitingRoom)
         {
+            this.waitingRoom = waitingRoom;
             this.UserName = us;
             this.callback = callback;
             this.Client = client;
@@ -45,11 +46,14 @@ namespace FIARClient
 
             SetGui();
         }
+
+
         private bool animating = false;
 
         private SolidColorBrush playerColor;
         private SolidColorBrush opponentColor;
         private SolidColorBrush whiteColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
+        private WaitingRoom waitingRoom;
 
         private void SetGui()
         {
@@ -167,8 +171,9 @@ namespace FIARClient
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!gameEnded)
-
                 Client.Disconnected(UserName);
+            waitingRoom.UpdatePlayersAvailable();
+            waitingRoom.Show();
         }
     }
 }

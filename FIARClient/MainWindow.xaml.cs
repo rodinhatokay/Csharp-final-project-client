@@ -39,7 +39,8 @@ namespace FIARClient
                 try
                 {
                     ClientCallback callback = new ClientCallback();
-                    FIARServiceClient client = new FIARServiceClient(new InstanceContext(callback));
+                    var instanceCallback = new InstanceContext(callback);
+                    FIARServiceClient client = new FIARServiceClient(instanceCallback);
 
                     string username = tbUserName.Text.Trim();
                     string pass = tbPass.Password.ToString();
