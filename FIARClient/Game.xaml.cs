@@ -38,6 +38,7 @@ namespace FIARClient
             this.Client = client;
             this.callback.madeMove = UpdateGame;
             this.turn = turn;
+            SetTurn();
             callback.EndGame = this.EndGame;
             InitializeComponent();
             playerColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
@@ -45,6 +46,12 @@ namespace FIARClient
             opponentColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Yellow"));
 
             SetGui();
+        }
+
+        private void SetTurn()
+        {
+            string text = turn ? "Your turn" : "Not your turn";
+            this.labelTurn.Content = text;
         }
 
 
@@ -94,6 +101,7 @@ namespace FIARClient
                     await Animate_Click(result, el);
                 }
                 turn = !turn;
+                SetTurn();
 
             }
             catch (Exception exp)
@@ -129,6 +137,7 @@ namespace FIARClient
         {
             animating = true;
             turn = true;
+            SetTurn();
             await animate(location, opponentColor);
             animating = false;
             EndGame(result);

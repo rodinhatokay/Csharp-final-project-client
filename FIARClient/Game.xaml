@@ -6,7 +6,18 @@
         xmlns:local="clr-namespace:FIARClient"
         mc:Ignorable="d"
         Title="Four In A Row" Height="450" Width="600" ResizeMode="NoResize" Closing="Window_Closing">
-    <UniformGrid x:Name="myUG" Rows="6" Columns="7" Margin="20" Background="Blue" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <!--<ColumnDefinition Width="*"/>-->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.08*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Name="labelTurn" Grid.Row="0" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="17" />
+        <UniformGrid x:Name="myUG" Grid.Column="0" Grid.Row="1" Rows="6"  Columns="7" Margin="20" Background="Blue" >
 
     </UniformGrid>
+    </Grid>
 </Window>
