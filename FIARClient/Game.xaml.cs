@@ -30,22 +30,30 @@ namespace FIARClient
 
         private bool turn;
         private bool gameEnded = false;
-        public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn, WaitingRoom waitingRoom)
+        private string otherPalyerUS;
+        public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn, WaitingRoom waitingRoom, string otherPalyerUS)
         {
+            InitializeComponent();
             this.waitingRoom = waitingRoom;
-            this.UserName = us;
             this.callback = callback;
             this.Client = client;
             this.callback.madeMove = UpdateGame;
             this.turn = turn;
+            
             SetTurn();
             callback.EndGame = this.EndGame;
-            InitializeComponent();
             playerColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
-            //opponentColor = new SolidColorBrush(Color.FromArgb(64, 32, 191, 255));
             opponentColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Yellow"));
-
+            SetUsers(us, otherPalyerUS);
             SetGui();
+        }
+        
+        private void SetUsers(string og, string otherPlayer)
+        {
+            otherPalyerUS = otherPlayer;
+            UserName = og;
+            lbUsername.Content = og;
+            lbOtherPlayerUS.Content = otherPlayer;
         }
 
         private void SetTurn()
@@ -84,6 +92,7 @@ namespace FIARClient
 
         private async void Ellipse_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            MoveResult state = MoveResult.NotYourTurn;
             try
             {
 
@@ -92,17 +101,18 @@ namespace FIARClient
                     var el = sender as Ellipse;
                     int col = myUG.Children.IndexOf(el) % 7;
                     var result = Client.ReportMove(this.UserName, col);
+                    state = result;
                     if (result == MoveResult.NotYourTurn || result == MoveResult.IlligelMove)
                     {
                         //MessageBox.Show("Not your turn");
                         return;
                     }
-
+                    
                     await Animate_Click(result, el);
                 }
                 turn = !turn;
-                SetTurn();
-
+                if (state == MoveResult.GameOn)
+                    SetTurn();
             }
             catch (Exception exp)
             {
@@ -127,6 +137,7 @@ namespace FIARClient
                 animating = true;
 
                 gameEnded = true;
+                this.labelTurn.Content = "Game over";
             }
 
 
@@ -181,6 +192,7 @@ namespace FIARClient
         {
             if (!gameEnded)
                 Client.Disconnected(UserName);
+            Client.SetAsAvailablePlayer(this.UserName);
             waitingRoom.UpdatePlayersAvailable();
             waitingRoom.Show();
         }

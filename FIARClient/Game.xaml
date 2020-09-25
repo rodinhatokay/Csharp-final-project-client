@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIARClient"
         mc:Ignorable="d"
-        Title="Four In A Row" Height="450" Width="600" ResizeMode="NoResize" Closing="Window_Closing">
+        Title="Four In A Row" Height="550" Width="700" ResizeMode="NoResize" Closing="Window_Closing">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <!--<ColumnDefinition Width="*"/>-->
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.08*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Name="labelTurn" Grid.Row="0" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="17" />
-        <UniformGrid x:Name="myUG" Grid.Column="0" Grid.Row="1" Rows="6"  Columns="7" Margin="20" Background="Blue" >
+        <Label Name="labelTurn" Grid.Row="0" Grid.Column="1" Content="" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="17" />
+        <Label Name="lbUsername" Grid.Row="0" Grid.Column="0" Content="You: " VerticalContentAlignment="Center"  FontSize="17" />
+        <Label Name="lbOtherPlayerUS" Grid.Row="0" Grid.Column="2"  Content="OtherPlayer:" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" FontSize="17" />
+        
+        <UniformGrid x:Name="myUG" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Rows="6"  Columns="7" Margin="20" Background="Blue" >
 
     </UniformGrid>
     </Grid>

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -79,37 +80,51 @@ namespace FIARClient
             InvitationDialog dialog = new InvitationDialog();
             dialog.Label.Content = "Invitation to a game from " + username;
             dialog.ShowDialog();
-
             if (dialog.Result == true)
             {
-                Game g = new Game(Client, this.UserName, this.callback, false,this);
+                Game g = new Game(Client, this.UserName, this.callback, false, this, username);
                 this.Hide();
                 g.Show();
                 return true;
-                
+
             }
             return false;
         }
 
         private void btn_req_Click(object sender, RoutedEventArgs e)
         {
-            if (lbWaitingRoom.SelectedIndex == -1)
+            try
             {
-                MessageBox.Show("You need to pick an opponent");
-                return;
+                if (lbWaitingRoom.SelectedIndex == -1)
+                {
+                    MessageBox.Show("You need to pick an opponent");
+                    return;
+                }
+                PlayerInfo pi = lbWaitingRoom.SelectedItem as PlayerInfo;
+                string name = pi.username;
+                bool result = Client.InvitationSend(UserName, name);
+                if (result == true)
+                {
+                    Game g = new Game(Client, this.UserName, this.callback, true, this, name);
+                    this.Hide();
+                    g.Show();
+                }
+                else
+                {
+                    MessageBox.Show(name + "DECLINED YOUR INVITE");
+                }
             }
-            PlayerInfo pi = lbWaitingRoom.SelectedItem as PlayerInfo;
-            string name = pi.username;
-            bool result = Client.InvitationSend(UserName, name);
-            if (result == true)
+            catch (FaultException<OpponentNotAvailableFault> ex)
             {
-                Game g = new Game(Client, this.UserName, this.callback, true,this);
-                this.Hide();
-                g.Show();
+                MessageBox.Show(ex.Detail.Details);
             }
-            else
+            catch (FaultException<OpponentDisconnectedFault> ex)
             {
-                MessageBox.Show(name + "DECLINED YOUR INVITE");
+                MessageBox.Show(ex.Detail.Details);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

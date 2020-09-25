@@ -110,9 +110,9 @@ namespace FIARClient
                     player1Score += g.Player2Points;
                 }
             }
-            label_player1_wins.Content = (player1Wins * 100 / res.Count).ToString() + "%";
-            label_player2_wins.Content = (player2Wins * 100 / res.Count).ToString() + "%";
-            label_tie.Content = ((res.Count - player1Wins - player2Wins) * 100 / res.Count).ToString() + "%";
+            label_player1_wins.Content = res.Count == 0 ? "0%" :  (player1Wins * 100 / res.Count).ToString() + "%";
+            label_player2_wins.Content = res.Count == 0 ? "0%" : (player2Wins * 100 / res.Count).ToString() + "%";
+            label_tie.Content = res.Count == 0 ? "0%" : ((res.Count - player1Wins - player2Wins) * 100 / res.Count).ToString() + "%";
 
             label_player1_games_wins.Content = player1Wins;
             label_player2_games_wins.Content = player2Wins;

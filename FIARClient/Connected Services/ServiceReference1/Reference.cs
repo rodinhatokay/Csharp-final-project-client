@@ -559,6 +559,12 @@ namespace FIARClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/PlayerLogin", ReplyAction="http://tempuri.org/IFIARService/PlayerLoginResponse")]
         System.Threading.Tasks.Task PlayerLoginAsync(string username, string password);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/SetAsAvailablePlayer", ReplyAction="http://tempuri.org/IFIARService/SetAsAvailablePlayerResponse")]
+        void SetAsAvailablePlayer(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/SetAsAvailablePlayer", ReplyAction="http://tempuri.org/IFIARService/SetAsAvailablePlayerResponse")]
+        System.Threading.Tasks.Task SetAsAvailablePlayerAsync(string username);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/GetAllPlayers", ReplyAction="http://tempuri.org/IFIARService/GetAllPlayersResponse")]
         System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo> GetAllPlayers();
         
@@ -684,6 +690,14 @@ namespace FIARClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task PlayerLoginAsync(string username, string password) {
             return base.Channel.PlayerLoginAsync(username, password);
+        }
+        
+        public void SetAsAvailablePlayer(string username) {
+            base.Channel.SetAsAvailablePlayer(username);
+        }
+        
+        public System.Threading.Tasks.Task SetAsAvailablePlayerAsync(string username) {
+            return base.Channel.SetAsAvailablePlayerAsync(username);
         }
         
         public System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo> GetAllPlayers() {

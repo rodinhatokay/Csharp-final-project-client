@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FIARClient"
         mc:Ignorable="d"
-        Title="Search" Height="309.302" Width="350.604" ResizeMode="NoResize">
+        Title="Search" Height="350.302" Width="385.604" ResizeMode="NoResize">
     <DockPanel>
 
-        <Grid Width="302">
+        <Grid Width="346">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="63*"/>
                 <ColumnDefinition Width="174*"/>
@@ -16,10 +16,11 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="87*"/>
+                <RowDefinition Height="56*"/>
             </Grid.RowDefinitions>
-            <TextBlock Name="tbHeader" Margin="5,10" Grid.ColumnSpan="2" Text="All games:" />
-            <DataGrid IsReadOnly="True"  Name="dgData" Margin="5" Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="false" FlowDirection="LeftToRight">
+            <TextBlock Name="tbHeader" Margin="5,5" Grid.ColumnSpan="2" Text="All games:" />
+            <DataGrid IsReadOnly="True"  Name="dgData" Margin="0,5" Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="false" FlowDirection="LeftToRight" Grid.RowSpan="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn  Header="ID" Binding="{Binding GameId}" />
                     <DataGridTextColumn Header="Player 1" Binding="{Binding Player1_name}" />
