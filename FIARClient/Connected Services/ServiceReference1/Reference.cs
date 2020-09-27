@@ -559,10 +559,10 @@ namespace FIARClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/PlayerLogin", ReplyAction="http://tempuri.org/IFIARService/PlayerLoginResponse")]
         System.Threading.Tasks.Task PlayerLoginAsync(string username, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/SetAsAvailablePlayer", ReplyAction="http://tempuri.org/IFIARService/SetAsAvailablePlayerResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/SetAsAvailablePlayer")]
         void SetAsAvailablePlayer(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/SetAsAvailablePlayer", ReplyAction="http://tempuri.org/IFIARService/SetAsAvailablePlayerResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/SetAsAvailablePlayer")]
         System.Threading.Tasks.Task SetAsAvailablePlayerAsync(string username);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/GetAllPlayers", ReplyAction="http://tempuri.org/IFIARService/GetAllPlayersResponse")]
@@ -638,6 +638,9 @@ namespace FIARClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/StartGame")]
         void StartGame();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/IsAlive", ReplyAction="http://tempuri.org/IFIARService/IsAliveResponse")]
+        bool IsAlive();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

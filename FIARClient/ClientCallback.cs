@@ -55,6 +55,11 @@ namespace FIARClient
             return;
         }
 
+        public bool IsAlive()
+        {
+            return true;
+        }
+
 
         public void UpdateClients(List<PlayerInfo> players)
         {

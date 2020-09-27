@@ -39,7 +39,7 @@ namespace FIARClient
             this.Client = client;
             this.callback.madeMove = UpdateGame;
             this.turn = turn;
-            
+
             SetTurn();
             callback.EndGame = this.EndGame;
             playerColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
@@ -47,7 +47,7 @@ namespace FIARClient
             SetUsers(us, otherPalyerUS);
             SetGui();
         }
-        
+
         private void SetUsers(string og, string otherPlayer)
         {
             otherPalyerUS = otherPlayer;
@@ -107,7 +107,7 @@ namespace FIARClient
                         //MessageBox.Show("Not your turn");
                         return;
                     }
-                    
+
                     await Animate_Click(result, el);
                 }
                 turn = !turn;
@@ -190,11 +190,20 @@ namespace FIARClient
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            if (!gameEnded)
-                Client.Disconnected(UserName);
-            Client.SetAsAvailablePlayer(this.UserName);
-            waitingRoom.UpdatePlayersAvailable();
-            waitingRoom.Show();
+            try
+            {
+                if (!gameEnded)
+                    Client.Disconnected(UserName);
+                Client.SetAsAvailablePlayer(this.UserName);
+                waitingRoom.UpdatePlayersAvailable();
+                waitingRoom.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

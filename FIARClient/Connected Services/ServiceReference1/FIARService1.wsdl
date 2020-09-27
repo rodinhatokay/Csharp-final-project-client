@@ -379,29 +379,6 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_SetAsAvailablePlayer_output_policy">
-    <wsp:ExactlyOne>
-      <wsp:All>
-        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
-          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
-          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
-          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
-        </sp:SignedParts>
-        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
-          <sp:Body />
-        </sp:EncryptedParts>
-      </wsp:All>
-    </wsp:ExactlyOne>
-  </wsp:Policy>
   <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_GetAllPlayers_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
@@ -931,6 +908,52 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_IsAlive_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="WSDualHttpBinding_IFIARService_IsAlive_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:9001/Design_Time_Addresses/WcfFIARService/Service1/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -974,9 +997,6 @@
   </wsdl:message>
   <wsdl:message name="IFIARService_SetAsAvailablePlayer_InputMessage">
     <wsdl:part name="parameters" element="tns:SetAsAvailablePlayer" />
-  </wsdl:message>
-  <wsdl:message name="IFIARService_SetAsAvailablePlayer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetAsAvailablePlayerResponse" />
   </wsdl:message>
   <wsdl:message name="IFIARService_GetAllPlayers_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllPlayers" />
@@ -1047,6 +1067,12 @@
   <wsdl:message name="IFIARService_StartGame_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:StartGame" />
   </wsdl:message>
+  <wsdl:message name="IFIARService_IsAlive_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:IsAlive" />
+  </wsdl:message>
+  <wsdl:message name="IFIARService_IsAlive_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:IsAliveResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFIARService">
     <wsdl:operation name="RegisterPlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/RegisterPlayer" message="tns:IFIARService_RegisterPlayer_InputMessage" />
@@ -1067,7 +1093,6 @@
     </wsdl:operation>
     <wsdl:operation name="SetAsAvailablePlayer">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/SetAsAvailablePlayer" message="tns:IFIARService_SetAsAvailablePlayer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/SetAsAvailablePlayerResponse" message="tns:IFIARService_SetAsAvailablePlayer_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllPlayers">
       <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/GetAllPlayers" message="tns:IFIARService_GetAllPlayers_InputMessage" />
@@ -1119,6 +1144,10 @@
     </wsdl:operation>
     <wsdl:operation name="StartGame">
       <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/StartGame" message="tns:IFIARService_StartGame_OutputCallbackMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAlive">
+      <wsdl:output wsaw:Action="http://tempuri.org/IFIARService/IsAlive" message="tns:IFIARService_IsAlive_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IFIARService/IsAliveResponse" message="tns:IFIARService_IsAlive_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSDualHttpBinding_IFIARService" type="tns:IFIARService">
@@ -1183,10 +1212,6 @@
         <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_SetAsAvailablePlayer_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
-      <wsdl:output>
-        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_SetAsAvailablePlayer_output_policy" />
-        <soap12:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllPlayers">
       <soap12:operation soapAction="http://tempuri.org/IFIARService/GetAllPlayers" style="document" />
@@ -1319,6 +1344,17 @@
       <soap12:operation soapAction="http://tempuri.org/IFIARService/StartGame" style="document" />
       <wsdl:output>
         <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_StartGame_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAlive">
+      <soap12:operation soapAction="http://tempuri.org/IFIARService/IsAlive" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_IsAlive_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#WSDualHttpBinding_IFIARService_IsAlive_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>

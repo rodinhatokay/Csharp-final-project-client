@@ -83,10 +83,13 @@ C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug
 C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.pdb
 C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\bin\Debug\DotNetProjects.DataVisualization.Toolkit.dll
 C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.csproj.CopyComplete
-C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Csharp final project\Csharp-final-project-client\FIARClient\bin\Debug\DotNetProjects.DataVisualization.Toolkit.dll
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\OngoingGames.g.cs
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\AllGames.g.cs
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\OngoingGames.baml
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\AllGames.baml
 D:\Csharp final project\Csharp-final-project-client\FIARClient\obj\Debug\FIARClient.csproj.CopyComplete
+C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\OngoingGames.g.cs
+C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\AllGames.g.cs
+C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\OngoingGames.baml
+C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\AllGames.baml
