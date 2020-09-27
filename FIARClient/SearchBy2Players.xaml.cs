@@ -83,43 +83,54 @@ namespace FIARClient
         }
         private void getData(player p1, player p2)
         {
-            var res = Client.GetPlayersGames(p1.username, p2.username);
-
-            int player1Wins = 0;
-            int player2Wins = 0;
-
-            int player1Score = 0;
-            int player2Score = 0;
-
-            foreach (var g in res)
+            try
             {
-                if (g.Winner_id == p1.id)
-                    player1Wins++;
-                if (g.Winner_id == p2.id)
+                var res = Client.GetPlayersGames(p1.username, p2.username);
+
+                int player1Wins = 0;
+                int player2Wins = 0;
+
+                int player1Score = 0;
+                int player2Score = 0;
+
+                foreach (var g in res)
                 {
-                    player2Wins++;
+                    if (g.Winner_id == p1.id)
+                        player1Wins++;
+                    if (g.Winner_id == p2.id)
+                    {
+                        player2Wins++;
+                    }
+                    if (p1.id == g.Player1_id)
+                    {
+                        player1Score += g.Player1Points;
+                        player2Score += g.Player2Points;
+                    }
+                    else
+                    {
+                        player2Score += g.Player1Points;
+                        player1Score += g.Player2Points;
+                    }
                 }
-                if (p1.id == g.Player1_id)
-                {
-                    player1Score += g.Player1Points;
-                    player2Score += g.Player2Points;
-                }
-                else
-                {
-                    player2Score += g.Player1Points;
-                    player1Score += g.Player2Points;
-                }
+                label_player1_wins.Content = res.Count == 0 ? "0%" : (player1Wins * 100 / res.Count).ToString() + "%";
+                label_player2_wins.Content = res.Count == 0 ? "0%" : (player2Wins * 100 / res.Count).ToString() + "%";
+                label_tie.Content = res.Count == 0 ? "0%" : ((res.Count - player1Wins - player2Wins) * 100 / res.Count).ToString() + "%";
+
+                label_player1_games_wins.Content = player1Wins;
+                label_player2_games_wins.Content = player2Wins;
+                label_games_tie.Content = (res.Count - player1Wins - player2Wins);
+
+                label_player1_points.Content = player1Score;
+                label_player2_points.Content = player2Score;
             }
-            label_player1_wins.Content = res.Count == 0 ? "0%" :  (player1Wins * 100 / res.Count).ToString() + "%";
-            label_player2_wins.Content = res.Count == 0 ? "0%" : (player2Wins * 100 / res.Count).ToString() + "%";
-            label_tie.Content = res.Count == 0 ? "0%" : ((res.Count - player1Wins - player2Wins) * 100 / res.Count).ToString() + "%";
-
-            label_player1_games_wins.Content = player1Wins;
-            label_player2_games_wins.Content = player2Wins;
-            label_games_tie.Content = (res.Count - player1Wins - player2Wins);
-
-            label_player1_points.Content = player1Score;
-            label_player2_points.Content = player2Score;
+            catch(TimeoutException)
+            {
+                MessageBox.Show("request timeout");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
         }
     }

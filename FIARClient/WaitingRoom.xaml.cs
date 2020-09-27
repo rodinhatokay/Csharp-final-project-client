@@ -50,8 +50,18 @@ namespace FIARClient
 
         public void UpdatePlayersAvailable()
         {
+            try { 
             players = Client.GetAvalibalePlayers();
             lbWaitingRoom.ItemsSource = initPlayers(players);
+            }
+            catch(TimeoutException ex)
+            {
+                MessageBox.Show("Coudln't reach the server");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
 
@@ -122,6 +132,10 @@ namespace FIARClient
             {
                 MessageBox.Show(ex.Detail.Details);
             }
+            catch(TimeoutException ex)
+            {
+                MessageBox.Show("request timeout");
+            }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -140,13 +154,18 @@ namespace FIARClient
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            try { 
             Client.PlayerLogout(UserName);
+            }
+            catch(TimeoutException ex)
+            {
+                MessageBox.Show("request timeout");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             Environment.Exit(Environment.ExitCode);
-        }
-
-        private void Window_Initialized(object sender, EventArgs e)
-        {
-
         }
 
 

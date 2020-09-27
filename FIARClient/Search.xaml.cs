@@ -24,41 +24,22 @@ namespace FIARClient
 
         public Search(FIARServiceClient Client)
         {
-            this.Client = Client;
-            InitializeComponent();
-            dgData.ItemsSource = Client.GetAllPlayers();
-            int a = dgData.Columns.Count;
-
-        }
-
-
-        private void MI_allgames_Click(object sender, RoutedEventArgs e)
-        {
             try
             {
-                //lbItems.ItemsSource = Client.GetAllGame();
+                this.Client = Client;
+                InitializeComponent();
+                dgData.ItemsSource = Client.GetAllPlayers();
+                int a = dgData.Columns.Count;
             }
-            catch (Exception)
+            catch(TimeoutException)
             {
-
+                MessageBox.Show("request timeout");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
-
-        private void MI_currentlyplaying_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                //lbItems.ItemsSource = Client.GetCurrentPlayers();
-
-            }
-            catch (Exception)
-            {
-
-            }
-        }
-
-
-
     }
 
 }

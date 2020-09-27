@@ -62,6 +62,10 @@ namespace FIARClient
                 {
                     MessageBox.Show(ex.Message);
                 }
+                catch(TimeoutException)
+                {
+                    MessageBox.Show("request timeout");
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);

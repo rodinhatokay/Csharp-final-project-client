@@ -92,6 +92,7 @@ namespace FIARClient
 
         private async void Ellipse_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            if (gameEnded) return;
             MoveResult state = MoveResult.NotYourTurn;
             try
             {
@@ -114,10 +115,15 @@ namespace FIARClient
                 if (state == MoveResult.GameOn)
                     SetTurn();
             }
+            catch (TimeoutException ex)
+            {
+                MessageBox.Show("Lost connection with the server");
+            }
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
             }
+            
 
         }
 
@@ -197,7 +203,6 @@ namespace FIARClient
                 Client.SetAsAvailablePlayer(this.UserName);
                 waitingRoom.UpdatePlayersAvailable();
                 waitingRoom.Show();
-
             }
             catch (Exception ex)
             {
