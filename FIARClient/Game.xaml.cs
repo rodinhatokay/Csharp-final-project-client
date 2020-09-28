@@ -31,7 +31,9 @@ namespace FIARClient
         private bool turn;
         private bool gameEnded = false;
         private string otherPalyerUS;
-        public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn, WaitingRoom waitingRoom, string otherPalyerUS)
+
+        private WaitingRoom wr;
+        public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn, WaitingRoom waitingRoom, string otherPalyerUS, WaitingRoom wr)
         {
             InitializeComponent();
             this.waitingRoom = waitingRoom;
@@ -39,6 +41,7 @@ namespace FIARClient
             this.Client = client;
             this.callback.madeMove = UpdateGame;
             this.turn = turn;
+            this.wr = wr;
 
             SetTurn();
             callback.EndGame = this.EndGame;
@@ -47,7 +50,11 @@ namespace FIARClient
             SetUsers(us, otherPalyerUS);
             SetGui();
         }
-
+        private void serverLost()
+        {
+            this.Close();
+            wr.serverLost();
+        }
         private void SetUsers(string og, string otherPlayer)
         {
             otherPalyerUS = otherPlayer;
@@ -117,13 +124,13 @@ namespace FIARClient
             }
             catch (TimeoutException ex)
             {
-                MessageBox.Show("Lost connection with the server");
+                serverLost();
             }
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
             }
-            
+
 
         }
 
@@ -200,9 +207,10 @@ namespace FIARClient
             {
                 if (!gameEnded)
                     Client.Disconnected(UserName);
-                Client.SetAsAvailablePlayer(this.UserName);
-                waitingRoom.UpdatePlayersAvailable();
+
+
                 waitingRoom.Show();
+                waitingRoom.UpdatePlayersAvailable();
             }
             catch (Exception ex)
             {

@@ -1,5 +1,6 @@
 ﻿using FIARClient.ServiceReference1;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -47,18 +48,22 @@ namespace FIARClient
             lbWaitingRoom.ItemsSource = initPlayers(players);
         }
 
+        private bool error = false;
 
         public void UpdatePlayersAvailable()
         {
-            try { 
-            players = Client.GetAvalibalePlayers();
-            lbWaitingRoom.ItemsSource = initPlayers(players);
-            }
-            catch(TimeoutException ex)
+            try
             {
-                MessageBox.Show("Coudln't reach the server");
+                Client.SetAsAvailablePlayer(this.UserName);
+                players = Client.GetAvalibalePlayers();
+                lbWaitingRoom.ItemsSource = initPlayers(players);
             }
-            catch(Exception ex)
+            catch (TimeoutException ex)
+            {
+                serverLost();
+
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -92,7 +97,7 @@ namespace FIARClient
             dialog.ShowDialog();
             if (dialog.Result == true)
             {
-                Game g = new Game(Client, this.UserName, this.callback, false, this, username);
+                Game g = new Game(Client, this.UserName, this.callback, false, this, username, this);
                 this.Hide();
                 g.Show();
                 return true;
@@ -115,7 +120,7 @@ namespace FIARClient
                 bool result = Client.InvitationSend(UserName, name);
                 if (result == true)
                 {
-                    Game g = new Game(Client, this.UserName, this.callback, true, this, name);
+                    Game g = new Game(Client, this.UserName, this.callback, true, this, name, this);
                     this.Hide();
                     g.Show();
                 }
@@ -132,11 +137,11 @@ namespace FIARClient
             {
                 MessageBox.Show(ex.Detail.Details);
             }
-            catch(TimeoutException ex)
+            catch (TimeoutException ex)
             {
-                MessageBox.Show("request timeout");
+                serverLost();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -154,21 +159,30 @@ namespace FIARClient
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            try { 
-            Client.PlayerLogout(UserName);
-            }
-            catch(TimeoutException ex)
+            if (!error)
             {
-                MessageBox.Show("request timeout");
+                try
+                {
+
+                    Client.PlayerLogout(UserName);
+                }
+                catch (Exception)
+                {
+                    Environment.Exit(Environment.ExitCode);
+                }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            Environment.Exit(Environment.ExitCode);
         }
 
+        public void serverLost()
+        {
 
+            error = true;
+            this.Close();
+            MessageBox.Show("Sorry,Connection with the server was lost");
+            MainWindow m = new MainWindow();
+            m.Show();
+
+        }
 
         private void lbWaitingRoom_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -186,24 +200,56 @@ namespace FIARClient
         }
         private void MI_2players_Click(object sender, RoutedEventArgs e)
         {
-            SearchBy2Players windowSearch = new SearchBy2Players(Client);
-            windowSearch.Client = Client;
-            windowSearch.Show();
-
+            try
+            {
+                SearchBy2Players windowSearch = new SearchBy2Players(Client, this);
+                windowSearch.Client = Client;
+                windowSearch.Show();
+            }
+            catch (TimeoutException ex)
+            {
+                serverLost();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void MI_gamesEnded_Click(object sender, RoutedEventArgs e)
         {
-            AllGames searchWindow = new AllGames(Client);
-            searchWindow.Client = Client;
-            searchWindow.Show();
+            try
+            {
+                AllGames searchWindow = new AllGames(Client);
+                searchWindow.Client = Client;
+                searchWindow.Show();
+            }
+            catch (TimeoutException ex)
+            {
+                serverLost();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void MI_gamesOngoing_Click(object sender, RoutedEventArgs e)
         {
-            OngoingGames searchWindow = new OngoingGames(Client);
-            searchWindow.Client = Client;
-            searchWindow.Show();
+            try
+            {
+                OngoingGames searchWindow = new OngoingGames(Client, this);
+                searchWindow.Client = Client;
+                searchWindow.Show();
+            }
+            catch (TimeoutException ex)
+            {
+                serverLost();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -619,6 +619,12 @@ namespace FIARClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/GetOngoingGames", ReplyAction="http://tempuri.org/IFIARService/GetOngoingGamesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<FIARClient.ServiceReference1.GameInfo>> GetOngoingGamesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/ping", ReplyAction="http://tempuri.org/IFIARService/pingResponse")]
+        bool ping();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/ping", ReplyAction="http://tempuri.org/IFIARService/pingResponse")]
+        System.Threading.Tasks.Task<bool> pingAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -635,9 +641,6 @@ namespace FIARClient.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/UpdateClients")]
         void UpdateClients(System.Collections.Generic.List<FIARClient.ServiceReference1.PlayerInfo> players);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/StartGame")]
-        void StartGame();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/IsAlive", ReplyAction="http://tempuri.org/IFIARService/IsAliveResponse")]
         bool IsAlive();
@@ -773,6 +776,14 @@ namespace FIARClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.List<FIARClient.ServiceReference1.GameInfo>> GetOngoingGamesAsync() {
             return base.Channel.GetOngoingGamesAsync();
+        }
+        
+        public bool ping() {
+            return base.Channel.ping();
+        }
+        
+        public System.Threading.Tasks.Task<bool> pingAsync() {
+            return base.Channel.pingAsync();
         }
     }
 }

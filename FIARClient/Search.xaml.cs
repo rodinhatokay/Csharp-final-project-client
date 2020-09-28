@@ -24,21 +24,11 @@ namespace FIARClient
 
         public Search(FIARServiceClient Client)
         {
-            try
-            {
-                this.Client = Client;
-                InitializeComponent();
-                dgData.ItemsSource = Client.GetAllPlayers();
-                int a = dgData.Columns.Count;
-            }
-            catch(TimeoutException)
-            {
-                MessageBox.Show("request timeout");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            this.Client = Client;
+            InitializeComponent();
+            dgData.ItemsSource = Client.GetAllPlayers();
+
         }
     }
 

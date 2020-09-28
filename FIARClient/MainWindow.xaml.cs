@@ -58,17 +58,9 @@ namespace FIARClient
                 {
                     MessageBox.Show(ex.Detail.Details);
                 }
-                catch (FaultException ex)
+                catch (Exception)
                 {
-                    MessageBox.Show(ex.Message);
-                }
-                catch(TimeoutException)
-                {
-                    MessageBox.Show("request timeout");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Server is not avalibale");
                 }
             }
         }

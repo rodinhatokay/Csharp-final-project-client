@@ -21,22 +21,15 @@ namespace FIARClient
     public partial class OngoingGames : Window
     {
         public FIARServiceClient Client { get; internal set; }
-        public OngoingGames(FIARServiceClient Client)
+        public OngoingGames(FIARServiceClient Client, WaitingRoom wr)
         {
             this.Client = Client;
             InitializeComponent();
-            try
-            {
-                dgData.ItemsSource = Client.GetOngoingGames();
-            }
-            catch(TimeoutException)
-            {
-                MessageBox.Show("request timeout");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            dgData.ItemsSource = Client.GetOngoingGames();
+
+
         }
+
     }
 }

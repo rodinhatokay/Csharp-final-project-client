@@ -151,6 +151,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ping">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="pingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pingResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="SendInvite">
     <xs:complexType>
       <xs:sequence>
@@ -183,11 +195,6 @@
       <xs:sequence>
         <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfFIARService" minOccurs="0" name="players" nillable="true" type="q8:ArrayOfPlayerInfo" />
       </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="StartGame">
-    <xs:complexType>
-      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="IsAlive">

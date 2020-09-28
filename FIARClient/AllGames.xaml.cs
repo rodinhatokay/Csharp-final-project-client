@@ -25,19 +25,9 @@ namespace FIARClient
         {
             this.Client = Client;
             InitializeComponent();
-            try
-            {
-                dgData.ItemsSource = Client.GetEndedGames();
-            }
-            catch(TimeoutException)
-            {
-                MessageBox.Show("request timeout");
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
+            dgData.ItemsSource = Client.GetEndedGames(); ;
+
+
         }
 
 

@@ -28,27 +28,29 @@ namespace FIARClient
         public IEnumerable Result { get; internal set; }
 
         private List<player> Players { get; set; }
-
-        public SearchBy2Players(FIARServiceClient Client)
+        private WaitingRoom sender;
+        public SearchBy2Players(FIARServiceClient Client, WaitingRoom sender)
         {
+            this.sender = sender;
             this.Client = Client;
             InitializeComponent();
             resetLabels();
 
         }
 
+        private void serverLost()
+        {
+            this.Close();
+            sender.serverLost();
+        }
+
         private void Window_Initialized(object sender, EventArgs e)
         {
-            try
-            {
-                Players = player.initList(Client.GetAllPlayers());
-                cbFirstActors.ItemsSource = new List<player>(Players);
-                cbSecondActors.ItemsSource = new List<player>(Players);
-            }
-            catch (Exception)
-            {
 
-            }
+            Players = player.initList(Client.GetAllPlayers());
+            cbFirstActors.ItemsSource = new List<player>(Players);
+            cbSecondActors.ItemsSource = new List<player>(Players);
+
         }
 
 
@@ -123,11 +125,11 @@ namespace FIARClient
                 label_player1_points.Content = player1Score;
                 label_player2_points.Content = player2Score;
             }
-            catch(TimeoutException)
+            catch (TimeoutException)
             {
-                MessageBox.Show("request timeout");
+                serverLost();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

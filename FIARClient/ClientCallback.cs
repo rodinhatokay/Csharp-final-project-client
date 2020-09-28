@@ -17,6 +17,7 @@ namespace FIARClient
 
         public invite invatation;
         internal Action<List<PlayerInfo>> getPlayers;
+        internal Action lostConnection;
 
         public delegate Task move(MoveResult result, int col);
 
@@ -48,12 +49,6 @@ namespace FIARClient
             return res;
         }
 
-
-
-        public void StartGame()
-        {
-            return;
-        }
 
         public bool IsAlive()
         {
