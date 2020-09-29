@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace FIARClient
 {
     /// <summary>
-    /// Interaction logic for SearchGame.xaml
+    /// fetchs from host all games ended and displays in data grid  
     /// </summary>
     public partial class AllGames : Window
     {
@@ -26,10 +26,6 @@ namespace FIARClient
             this.Client = Client;
             InitializeComponent();
             dgData.ItemsSource = Client.GetEndedGames(); ;
-
-
         }
-
-
     }
 }

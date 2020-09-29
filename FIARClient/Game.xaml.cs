@@ -33,6 +33,16 @@ namespace FIARClient
         private string otherPalyerUS;
 
         private WaitingRoom wr;
+        /// <summary>
+        /// sets the game with given players callback and turn
+        /// </summary>
+        /// <param name="client"></param>
+        /// <param name="us"></param>
+        /// <param name="callback"></param>
+        /// <param name="turn"></param>
+        /// <param name="waitingRoom"></param>
+        /// <param name="otherPalyerUS"></param>
+        /// <param name="wr"></param>
         public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn, WaitingRoom waitingRoom, string otherPalyerUS, WaitingRoom wr)
         {
             InitializeComponent();
@@ -50,11 +60,21 @@ namespace FIARClient
             SetUsers(us, otherPalyerUS);
             SetGui();
         }
+
+        /// <summary>
+        /// server connecting lost
+        /// </summary>
         private void serverLost()
         {
             this.Close();
             wr.serverLost();
         }
+
+        /// <summary>
+        /// sets players for this game and display on top of the gameboard
+        /// </summary>
+        /// <param name="og"></param>
+        /// <param name="otherPlayer"></param>
         private void SetUsers(string og, string otherPlayer)
         {
             otherPalyerUS = otherPlayer;
@@ -77,6 +97,10 @@ namespace FIARClient
         private SolidColorBrush whiteColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("White"));
         private WaitingRoom waitingRoom;
 
+
+        /// <summary>
+        /// filles the gui in 42 white ellipes and makes em clickable
+        /// </summary>
         private void SetGui()
         {
             for (int i = 0; i < 42; i++)
@@ -96,7 +120,11 @@ namespace FIARClient
         }
 
 
-
+        /// <summary>
+        /// handles on click ellipse
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void Ellipse_MouseUp(object sender, MouseButtonEventArgs e)
         {
             if (gameEnded) return;
@@ -135,6 +163,10 @@ namespace FIARClient
         }
 
 
+        /// <summary>
+        /// checks if game is ended by MoveResult and ends the game if ended
+        /// </summary>
+        /// <param name="res"></param>
         private void EndGame(MoveResult res)
         {
             if (res != MoveResult.GameOn && res != MoveResult.IlligelMove && res != MoveResult.NotYourTurn)
@@ -152,11 +184,16 @@ namespace FIARClient
                 gameEnded = true;
                 this.labelTurn.Content = "Game over";
             }
-
-
-            //throw new NotImplementedException();
         }
 
+
+
+        /// <summary>
+        /// updates move from other player was made
+        /// </summary>
+        /// <param name="result"></param>
+        /// <param name="location"></param>
+        /// <returns></returns>
         private async Task UpdateGame(MoveResult result, int location)
         {
             animating = true;
@@ -177,6 +214,12 @@ namespace FIARClient
 
         }
 
+        /// <summary>
+        /// animates the disk drop on row given index and color
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="color"></param>
+        /// <returns></returns>
         private async Task animate(int index, SolidColorBrush color)
         {
 

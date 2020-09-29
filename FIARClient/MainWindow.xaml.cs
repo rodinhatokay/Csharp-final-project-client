@@ -19,6 +19,7 @@ namespace FIARClient
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
+    /// displays login page 
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -26,12 +27,23 @@ namespace FIARClient
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// opens register window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
             RegisterAcc rgAcc = new RegisterAcc();
             rgAcc.Show();
         }
 
+        /// <summary>
+        /// sends request to log in to host 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             if (AllboxesFilled())
@@ -64,6 +76,7 @@ namespace FIARClient
                 }
             }
         }
+
 
         private bool AllboxesFilled()
         {

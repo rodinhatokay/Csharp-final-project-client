@@ -21,6 +21,7 @@ namespace FIARClient
 {
     /// <summary>
     /// Interaction logic for SearchBy2Players.xaml
+    /// fetchs from host all players from host and display the stats between 2 selected players
     /// </summary>
     public partial class SearchBy2Players : Window
     {

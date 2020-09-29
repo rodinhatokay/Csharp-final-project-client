@@ -16,7 +16,8 @@ using System.Windows.Shapes;
 namespace FIARClient
 {
     /// <summary>
-    /// Interaction logic for OngoingGames.xaml
+    /// fetchs from host all ongoing games and displays in data grid  
+    /// 
     /// </summary>
     public partial class OngoingGames : Window
     {

@@ -17,6 +17,7 @@ namespace FIARClient
 {
     /// <summary>
     /// Interaction logic for Search.xaml
+    /// fetchs from host all players and displays data grid  
     /// </summary>
     public partial class Search : Window
     {
