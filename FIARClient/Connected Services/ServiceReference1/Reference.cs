@@ -583,12 +583,6 @@ namespace FIARClient.ServiceReference1 {
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/PlayerLogout")]
         System.Threading.Tasks.Task PlayerLogoutAsync(string username);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/Init", ReplyAction="http://tempuri.org/IFIARService/InitResponse")]
-        void Init();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFIARService/Init", ReplyAction="http://tempuri.org/IFIARService/InitResponse")]
-        System.Threading.Tasks.Task InitAsync();
-        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IFIARService/Disconnected")]
         void Disconnected(string username);
         
@@ -728,14 +722,6 @@ namespace FIARClient.ServiceReference1 {
         
         public System.Threading.Tasks.Task PlayerLogoutAsync(string username) {
             return base.Channel.PlayerLogoutAsync(username);
-        }
-        
-        public void Init() {
-            base.Channel.Init();
-        }
-        
-        public System.Threading.Tasks.Task InitAsync() {
-            return base.Channel.InitAsync();
         }
         
         public void Disconnected(string username) {

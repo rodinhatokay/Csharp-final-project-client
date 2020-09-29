@@ -210,7 +210,6 @@ namespace FIARClient
 
 
                 waitingRoom.Show();
-                waitingRoom.UpdatePlayersAvailable();
             }
             catch (Exception ex)
             {

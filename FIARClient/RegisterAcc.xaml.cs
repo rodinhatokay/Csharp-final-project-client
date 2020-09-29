@@ -30,52 +30,44 @@ namespace FIARClient
 
         private void btnRegister_Click(object sender, RoutedEventArgs e)
         {
-            if (AllBoxesFilled())
-            {
-                if (tbPass.Password.ToString().Equals(tbPass2.Password.ToString()))
-                {
-                    ClientCallback callback = new ClientCallback();
-                    FIARServiceClient client = new FIARServiceClient(new InstanceContext(callback));
-                    string un = tbUserName.Text.Trim();
-                    string pass = tbPass.Password.ToString();
-                    try
-                    {
-                        client.RegisterPlayer(un,pass);
-                        MessageBox.Show("Successfully added");
-                    }
-                    catch (FaultException<PlayerAlreadyExistsInDataBase> ex)
-                    {
-                        MessageBox.Show(ex.Detail.Details);
-                    }
-                    catch(TimeoutException)
-                    {
-                        MessageBox.Show("request timeout");
-                    }
-                    catch(Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("passwords are not matching please insert matching passwords");
-                }
-            }
-            else
+            if (!AllBoxesFilled())
             {
                 MessageBox.Show("You must fill all details");
+                return;
             }
+
+            if (!(tbPass.Password.Equals(tbPass2.Password)))
+            {
+                MessageBox.Show("passwords are not matching please insert matching passwords");
+                return;
+            }
+
+            ClientCallback callback = new ClientCallback();
+            FIARServiceClient client = new FIARServiceClient(new InstanceContext(callback));
+            string un = tbUserName.Text.Trim();
+            string pass = tbPass.Password.ToString();
+            try
+            {
+                client.RegisterPlayer(un, pass);
+                MessageBox.Show("Successfully added");
+            }
+            catch (FaultException<PlayerAlreadyExistsInDataBase> ex)
+            {
+                MessageBox.Show(ex.Detail.Details);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Server is not available");
+            }
+
+
         }
 
         private bool AllBoxesFilled()
         {
-            if (string.IsNullOrEmpty(tbUserName.Text))
-                return false;
-            if (string.IsNullOrEmpty(tbPass.Password.ToString()))
-                return false;
-            if (string.IsNullOrEmpty(tbPass2.Password.ToString()))
-                return false;
-            return true;
+            return !(string.IsNullOrEmpty(tbUserName.Text) || string.IsNullOrEmpty(tbPass.Password) ||
+                   string.IsNullOrEmpty(tbPass2.Password));
+
         }
     }
 }

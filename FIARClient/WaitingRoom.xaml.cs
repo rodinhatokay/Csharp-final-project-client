@@ -36,16 +36,7 @@ namespace FIARClient
             Client = clinet;
             UserName = us;
             players = new List<PlayerInfo>();
-            try
-            {
-                players = Client.GetAvalibalePlayers();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
 
-            lbWaitingRoom.ItemsSource = initPlayers(players);
         }
 
         private bool error = false;
@@ -250,6 +241,11 @@ namespace FIARClient
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            UpdatePlayersAvailable();
         }
     }
 }
