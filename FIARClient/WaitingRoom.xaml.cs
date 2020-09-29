@@ -19,6 +19,9 @@ namespace FIARClient
 {
     /// <summary>
     /// Interaction logic for WaitingRoom.xaml
+    /// this is the "main page" for players it display all players available and on click display stats of the player
+    /// button to varity of searchs for stats of games/players
+    /// anoter button for sending request to player selected
     /// </summary>
     public partial class WaitingRoom : Window
     {
@@ -27,6 +30,13 @@ namespace FIARClient
 
         List<PlayerInfo> players;
         private ClientCallback callback;
+
+        /// <summary>
+        /// gets host service and username and callback for the player 
+        /// </summary>
+        /// <param name="clinet"></param>
+        /// <param name="us"></param>
+        /// <param name="callback"></param>
         public WaitingRoom(FIARServiceClient clinet, string us, ClientCallback callback)
         {
             InitializeComponent();
@@ -41,6 +51,10 @@ namespace FIARClient
 
         private bool error = false;
 
+
+        /// <summary>
+        /// sends request to host as make this player available and requests for list player 
+        /// </summary>
         public void UpdatePlayersAvailable()
         {
             try
@@ -52,7 +66,6 @@ namespace FIARClient
             catch (TimeoutException ex)
             {
                 serverLost();
-
             }
             catch (Exception ex)
             {
@@ -61,14 +74,18 @@ namespace FIARClient
         }
 
 
+        /// <summary>
+        /// given players sets as available players to play with and displays on list view
+        /// </summary>
+        /// <param name="players"></param>
         private void GetPlayers(List<PlayerInfo> players)
         {
             this.players = players;
-
-
-
             lbWaitingRoom.ItemsSource = initPlayers(players);
         }
+
+
+
 
         private List<player> initPlayers(List<PlayerInfo> players)
         {
@@ -81,6 +98,12 @@ namespace FIARClient
             return pl;
         }
 
+
+        /// <summary>
+        /// callback from host to receive invite from username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public bool InviteRecieved(string username)
         {
             InvitationDialog dialog = new InvitationDialog();
@@ -97,6 +120,12 @@ namespace FIARClient
             return false;
         }
 
+        /// <summary>
+        /// button handles request player to play 
+        /// and sends invite
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_req_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -138,6 +167,7 @@ namespace FIARClient
             }
         }
 
+        
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
             Search searchWindow = new Search(Client);
@@ -147,7 +177,12 @@ namespace FIARClient
         }
 
 
-
+        /// <summary>
+        /// called when window is closed
+        /// sends to host as player logged out 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (!error)
@@ -164,6 +199,9 @@ namespace FIARClient
             }
         }
 
+        /// <summary>
+        /// called when lost connection with server
+        /// </summary>
         public void serverLost()
         {
 

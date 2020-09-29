@@ -7,6 +7,10 @@ using FIARClient.ServiceReference1;
 
 namespace FIARClient
 {
+
+    /// <summary>
+    /// this is extended version of player info used mainly for displaying info
+    /// </summary>
     public class player : PlayerInfo
     {
         public player(PlayerInfo p)

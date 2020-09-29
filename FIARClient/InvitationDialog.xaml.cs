@@ -16,6 +16,7 @@ namespace FIARClient
 {
     /// <summary>
     /// Interaction logic for InvitationDialog.xaml
+    /// dialog invation 
     /// </summary>
     public partial class InvitationDialog : Window
     {

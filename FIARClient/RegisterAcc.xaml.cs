@@ -18,6 +18,7 @@ namespace FIARClient
 {
     /// <summary>
     /// Interaction logic for RegisterAcc.xaml
+    /// regiseteration window 
     /// </summary>
     public partial class RegisterAcc : Window
     {
