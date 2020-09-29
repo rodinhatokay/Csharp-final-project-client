@@ -111,9 +111,10 @@ namespace FIARClient
             dialog.ShowDialog();
             if (dialog.Result == true)
             {
-                Game g = new Game(Client, this.UserName, this.callback, false, this, username, this);
-                this.Hide();
+                Game g = new Game(Client, this.UserName, this.callback, false, username);
+
                 g.Show();
+                this.Hide();
                 return true;
 
             }
@@ -140,9 +141,10 @@ namespace FIARClient
                 bool result = Client.InvitationSend(UserName, name);
                 if (result == true)
                 {
-                    Game g = new Game(Client, this.UserName, this.callback, true, this, name, this);
-                    this.Hide();
+                    Game g = new Game(Client, this.UserName, this.callback, true, name);
+
                     g.Show();
+                    this.Hide();
                 }
                 else
                 {
@@ -167,7 +169,7 @@ namespace FIARClient
             }
         }
 
-        
+
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
             Search searchWindow = new Search(Client);
