@@ -63,8 +63,8 @@ namespace FIARClient
         /// <returns></returns>
         public bool SendInvite(string username)
         {
-            return invatation(username);
-
+            bool res = invatation(username);
+            return res;
         }
 
 

@@ -43,13 +43,15 @@ namespace FIARClient
         /// <param name="waitingRoom"></param>
         /// <param name="otherPalyerUS"></param>
         /// <param name="wr"></param>
-        public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn, string otherPalyerUS)
+        public Game(FIARServiceClient client, string us, ClientCallback callback, bool turn, WaitingRoom waitingRoom, string otherPalyerUS, WaitingRoom wr)
         {
             InitializeComponent();
+            this.waitingRoom = waitingRoom;
             this.callback = callback;
             this.Client = client;
             this.callback.madeMove = UpdateGame;
             this.turn = turn;
+            this.wr = wr;
 
             SetTurn();
             callback.EndGame = this.EndGame;
@@ -249,16 +251,15 @@ namespace FIARClient
                 if (!gameEnded)
                     Client.Disconnected(UserName);
 
-                WaitingRoom wr = new WaitingRoom(this.Client, this.UserName, this.callback);
-                wr.Show();
-                return;
+
+                waitingRoom.Show();
+                waitingRoom.UpdatePlayersAvailable();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            MainWindow mw = new MainWindow();
-            mw.Show();
+
         }
     }
 }

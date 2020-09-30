@@ -46,7 +46,16 @@ namespace FIARClient
             Client = clinet;
             UserName = us;
             players = new List<PlayerInfo>();
+            try
+            {
+                players = Client.GetAvalibalePlayers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
+            lbWaitingRoom.ItemsSource = initPlayers(players);
         }
 
         private bool error = false;
@@ -111,10 +120,9 @@ namespace FIARClient
             dialog.ShowDialog();
             if (dialog.Result == true)
             {
-                Game g = new Game(Client, this.UserName, this.callback, false, username);
-
-                g.Show();
+                Game g = new Game(Client, this.UserName, this.callback, false, this, username, this);
                 this.Hide();
+                g.Show();
                 return true;
 
             }
@@ -141,10 +149,9 @@ namespace FIARClient
                 bool result = Client.InvitationSend(UserName, name);
                 if (result == true)
                 {
-                    Game g = new Game(Client, this.UserName, this.callback, true, name);
-
-                    g.Show();
+                    Game g = new Game(Client, this.UserName, this.callback, true, this, name, this);
                     this.Hide();
+                    g.Show();
                 }
                 else
                 {
@@ -169,7 +176,7 @@ namespace FIARClient
             }
         }
 
-
+        
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
             Search searchWindow = new Search(Client);
@@ -281,11 +288,6 @@ namespace FIARClient
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private void Window_ContentRendered(object sender, EventArgs e)
-        {
-            UpdatePlayersAvailable();
         }
     }
 }

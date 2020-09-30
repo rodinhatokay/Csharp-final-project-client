@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\obj\Debug\
+C:\Users\napso\Desktop\cSharp\Csharp-final-project-client\FIARClient\obj\Debug\
 FIARClient
 none
 false
 DEBUG;TRACE
-C:\Users\napso\Desktop\projects\Csharp-final-project-client\FIARClient\App.xaml
+C:\Users\napso\Desktop\cSharp\Csharp-final-project-client\FIARClient\App.xaml
 9-499497911
 
 17-735212149
-16-1821111036
+16563437383
 Game.xaml;InvitationDialog.xaml;MainWindow.xaml;OngoingGames.xaml;RegisterAcc.xaml;Search.xaml;SearchBy2Players.xaml;AllGames.xaml;WaitingRoom.xaml;
 
-False
+True
 
